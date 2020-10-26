@@ -72,31 +72,31 @@ namespace MathLibrary
         /// <param name="lhs"></param>
         /// <param name="rhs"></param>
         /// <returns></returns>
-        public static float DotProduct(Vector2 lhs, Vector2 rhs)
+        public static float DotProduct(Vector3 lhs, Vector3 rhs)
         {
             // X^2 + Y^2 = Dot Product
-            return (lhs.X * rhs.X) + (lhs.Y * rhs.Y);
+            return (lhs.X * rhs.X) + (lhs.Y * rhs.Y) + (lhs.Z * rhs.Z);
         }
 
         public static Vector3 operator +(Vector3 lhs, Vector3 rhs)
         {
-            return new Vector3(lhs.X += rhs.X, lhs.Y += rhs.Y);
+            return new Vector3(lhs.X += rhs.X, lhs.Y += rhs.Y, lhs.Z += rhs.Z);
         }
 
         public static Vector3 operator -(Vector3 lhs, Vector3 rhs)
         {
-            return new Vector3(lhs.X - rhs.X, lhs.Y - rhs.Y);
+            return new Vector3(lhs.X - rhs.X, lhs.Y - rhs.Y, lhs.Z - rhs.Z);
         }
 
         //this helps with scaleing (is that how you spell it?
         public static Vector3 operator *(Vector3 lhs, float scalar)
         {
-            return new Vector3(lhs.X * scalar, lhs.Y * scalar);
+            return new Vector3(lhs.X * scalar, lhs.Y * scalar, lhs.Z * scalar);
         }
 
         public static Vector3 operator /(Vector3 lhs, float scalar)
         {
-            return new Vector3(lhs.X / scalar, lhs.Y / scalar);
+            return new Vector3(lhs.X / scalar, lhs.Y / scalar, lhs.Z / scalar);
         }
     }
 }
