@@ -9,42 +9,24 @@ namespace MathLibrary
 
         public float X
         {
-            get
-            {
-                return _x;
-            }
-            set
-            {
-                _x = value;
-            }
+            get{return _x;}
+            set{_x = value;}
         }
 
         public float Y
         {
-            get
-            {
-                return _y;
-            }
-            set
-            {
-                _y = value;
-            }
+            get{return _y;}
+            set{_y = value;}
         }
 
         public float Magnitude
         {
-            get
-            {
-                
-            }
+            get{return (float)Math.Sqrt(X * X + Y * Y);}
         }
 
         public Vector2 Normalized
         {
-            get
-            {
-                return Normalize(this);
-            }
+            get{return Normalize(this);}
         }
 
         
@@ -68,7 +50,11 @@ namespace MathLibrary
         /// <returns></returns>
         public static Vector2 Normalize(Vector2 vector)
         {
-            
+            //less than zero? Not Great :(
+            if (vector.Magnitude == 0)
+                return new Vector2();
+            //greater that zero? Great!
+            return vector / vector.Magnitude;
         }
 
         /// <summary>
@@ -79,7 +65,8 @@ namespace MathLibrary
         /// <returns></returns>
         public static float DotProduct(Vector2 lhs, Vector2 rhs)
         {
-            
+            // X^2 + Y^2 = Dot Product
+            return (lhs.X * rhs.X) + (lhs.Y * rhs.Y);
         }
 
         public static Vector2 operator +(Vector2 lhs, Vector2 rhs)
@@ -92,9 +79,10 @@ namespace MathLibrary
             return new Vector2(lhs.X - rhs.X, lhs.Y - rhs.Y);
         }
 
+        //this helps with scaleing (is that how you spell it?
         public static Vector2 operator *(Vector2 lhs, float scalar)
         {
-            
+            return new Vector2(lhs.X * scalar, lhs.Y * scalar);
         }
 
         public static Vector2 operator /(Vector2 lhs, float scalar)
