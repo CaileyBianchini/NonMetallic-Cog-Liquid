@@ -2,10 +2,11 @@
 
 namespace MathLibrary
 {
-    public class Vector2
+    class Vector3
     {
         private float _x;
         private float _y;
+        private float _z;
 
         public float X
         {
@@ -19,28 +20,36 @@ namespace MathLibrary
             set { _y = value; }
         }
 
+        public float Z
+        {
+            get { return _z; }
+            set { _z = value; }
+        }
+
         public float Magnitude
         {
             get { return (float)Math.Sqrt(X * X + Y * Y); }
         }
 
-        public Vector2 Normalized
+        public Vector3 Normalized
         {
             get { return Normalize(this); }
         }
 
 
 
-        public Vector2()
+        public Vector3()
         {
             _x = 0;
             _y = 0;
+            _z = 0;
         }
 
-        public Vector2(float x, float y)
+        public Vector3(float x, float y, float z)
         {
             _x = x;
             _y = y;
+            _z = z;
         }
 
         /// <summary>
@@ -48,11 +57,11 @@ namespace MathLibrary
         /// </summary>
         /// <param name="vector">The vector that will be normalized</param>
         /// <returns></returns>
-        public static Vector2 Normalize(Vector2 vector)
+        public static Vector3 Normalize(Vector3 vector)
         {
             //less than zero? Not Great :(
             if (vector.Magnitude == 0)
-                return new Vector2();
+                return new Vector3();
             //greater that zero? Great!
             return vector / vector.Magnitude;
         }
@@ -69,28 +78,25 @@ namespace MathLibrary
             return (lhs.X * rhs.X) + (lhs.Y * rhs.Y);
         }
 
-        public static Vector2 operator +(Vector2 lhs, Vector2 rhs)
+        public static Vector3 operator +(Vector3 lhs, Vector3 rhs)
         {
-            return new Vector2(lhs.X += rhs.X, lhs.Y += rhs.Y);
+            return new Vector3(lhs.X += rhs.X, lhs.Y += rhs.Y);
         }
 
-        public static Vector2 operator -(Vector2 lhs, Vector2 rhs)
+        public static Vector3 operator -(Vector3 lhs, Vector3 rhs)
         {
-            return new Vector2(lhs.X - rhs.X, lhs.Y - rhs.Y);
+            return new Vector3(lhs.X - rhs.X, lhs.Y - rhs.Y);
         }
 
         //this helps with scaleing (is that how you spell it?
-        public static Vector2 operator *(Vector2 lhs, float scalar)
+        public static Vector3 operator *(Vector3 lhs, float scalar)
         {
-            return new Vector2(lhs.X * scalar, lhs.Y * scalar);
+            return new Vector3(lhs.X * scalar, lhs.Y * scalar);
         }
 
-        public static Vector2 operator /(Vector2 lhs, float scalar)
+        public static Vector3 operator /(Vector3 lhs, float scalar)
         {
-            return new Vector2(lhs.X / scalar, lhs.Y / scalar);
+            return new Vector3(lhs.X / scalar, lhs.Y / scalar);
         }
-
-
-
     }
 }

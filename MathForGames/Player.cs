@@ -15,14 +15,8 @@ namespace MathForGames
 
         public float Speed
         {
-            get
-            {
-                return _speed;
-            }
-            set
-            {
-                _speed = value;
-            }
+            get{return _speed;}
+            set{_speed = value;}
         }
 
         /// <param name="x">Position on the x axis</param>
