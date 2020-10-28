@@ -14,29 +14,33 @@ namespace MathForGames
     class Actor
     {
         protected char _icon = ' ';
-        protected Vector2 _position;
         protected Vector2 _velocity;
-        private Vector2 _facing;
+        protected Matrix3 _transform;
         protected ConsoleColor _color;
         protected Color _rayColor;
         public bool Started { get; private set; }
 
         public Vector2 Forward
         {
-            get { return _facing; }
-            set { _facing = value; }
+            get 
+            { 
+                return new Vector2(_transform.m11, _transform.m12); 
+            }
+            set
+            {
+                _transform.m11 = value.X;
+                _transform.m12 = value.Y;
+            }
         }
 
 
         public Vector2 Position
         {
-            get
-            {
-                return _position;
-            }
+            get{return new Vector2(_transform.m13, _transform.m23);}
             set
             {
-                _position = value;
+                _transform.m13 = value.X;
+                _transform.m23 = value.Y;
             }
         }
 
@@ -53,6 +57,7 @@ namespace MathForGames
         }
 
 
+
         /// <param name="x">Position on the x axis</param>
         /// <param name="y">Position on the y axis</param>
         /// <param name="icon">The symbol that will appear when drawn</param>
@@ -61,7 +66,8 @@ namespace MathForGames
         {
             _rayColor = Color.WHITE;
             _icon = icon;
-            _position = new Vector2(x, y);
+            _transform = new Matrix3();
+            Position = new Vector2(x, y);
             _velocity = new Vector2();
             _color = color;
             Forward = new Vector2(1, 0);
@@ -76,6 +82,7 @@ namespace MathForGames
         public Actor(float x, float y, Color rayColor, char icon = ' ', ConsoleColor color = ConsoleColor.White)
             : this((char)x,y,icon,color)
         {
+            _transform = new Matrix3();
             _rayColor = rayColor;
         }
 
@@ -103,16 +110,19 @@ namespace MathForGames
             UpdateFacing();
 
             //Increase position by the current velocity
-            _position += _velocity;
+            Position += _velocity;
+
+            //Changes position by using Tranform
+            //_position *= _transform;
         }
 
         public virtual void Draw()
         {
             //Draws the actor and a line indicating it facing to the raylib window.
             //Scaled to match console movement
-            Raylib.DrawText(_icon.ToString(), (int)_position.X * 32, (int)(_position.Y * 32), 32, _rayColor);
+            Raylib.DrawText(_icon.ToString(), (int)Position.X * 32, (int)(Position.Y * 32), 32, _rayColor);
             Raylib.DrawLine(
-                (int)Position.X * 32,
+                (int)(Position.X * 32),
                 (int)(Position.Y * 32),
                 (int)((Position.X + Forward.X) * 32),
                 (int)((Position.Y + Forward.Y) * 32),
@@ -126,7 +136,7 @@ namespace MathForGames
             if(Position.X >= 0 && Position.X < Console.WindowWidth 
                 && Position.Y >= 0  && Position.Y < Console.WindowHeight)
             {
-                Console.SetCursorPosition((int)_position.X, (int)_position.Y);
+                Console.SetCursorPosition((int)Position.X, (int)Position.Y);
                 Console.Write(_icon);
             }
             

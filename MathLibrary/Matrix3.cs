@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MathLibrary
 {
-    class Matrix3
+    public class Matrix3
     {
         public float m11, m12, m13, m21, m22, m23, m31, m32, m33;
 
@@ -49,23 +49,23 @@ namespace MathLibrary
                     //Row1, Column1
                     lhs.m11 * rhs.m11 + lhs.m12 * rhs.m21 + lhs.m13 * rhs.m31,
                     //Row1, Colomn2
-                    lhs.m11 * rhs.m12 + lhs.m12 + rhs.m22 + lhs.m13 * rhs.m32,
+                    lhs.m11 * rhs.m12 + lhs.m12 * rhs.m22 + lhs.m13 * rhs.m32,
                     //Row1, Coloumn3
-                    lhs.m11 * rhs.m13 + lhs.m12 + rhs.m23 + lhs.m13 * rhs.m33,
+                    lhs.m11 * rhs.m13 + lhs.m12 * rhs.m23 + lhs.m13 * rhs.m33,
 
                     //Row2, Column1
                     lhs.m21 * rhs.m11 + lhs.m22 * rhs.m21 + lhs.m23 * rhs.m31,
                     //Row2, Column2
-                    lhs.m21 * rhs.m12 + lhs.m22 + rhs.m22 + lhs.m23 * rhs.m32,
+                    lhs.m21 * rhs.m12 + lhs.m22 * rhs.m22 + lhs.m23 * rhs.m32,
                     //Row2, Column3
-                    lhs.m21 * rhs.m13 + lhs.m22 + rhs.m23 + lhs.m23 * rhs.m33,
+                    lhs.m21 * rhs.m13 + lhs.m22 * rhs.m23 + lhs.m23 * rhs.m33,
 
                     //Row3, Column1
                     lhs.m31 * rhs.m11 + lhs.m32 * rhs.m21 + lhs.m33 * rhs.m31,
                     //Row3, Column2
-                    lhs.m31 * rhs.m12 + lhs.m32 + rhs.m22 + lhs.m33 * rhs.m32,
+                    lhs.m31 * rhs.m12 + lhs.m32 * rhs.m22 + lhs.m33 * rhs.m32,
                     //Row3, Column3
-                    lhs.m31 * rhs.m13 + lhs.m32 + rhs.m23 + lhs.m33 * rhs.m33
+                    lhs.m31 * rhs.m13 + lhs.m32 * rhs.m23 + lhs.m33 * rhs.m33
                 );
         }
     }

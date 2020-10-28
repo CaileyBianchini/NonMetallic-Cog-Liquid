@@ -19,8 +19,10 @@ namespace MathLibrary
             set { _y = value; }
         }
 
+        //Length of vector
         public float Magnitude
         {
+            //math has to have float because normally its a int
             get { return (float)Math.Sqrt(X * X + Y * Y); }
         }
 
@@ -45,9 +47,10 @@ namespace MathLibrary
 
         /// <summary>
         /// Returns the normalized version of a the vector passed in.
-        /// </summary>
+        /// </summary> 
         /// <param name="vector">The vector that will be normalized</param>
         /// <returns></returns>
+        /// 
         public static Vector2 Normalize(Vector2 vector)
         {
             //less than zero? Not Great :(
