@@ -56,7 +56,13 @@ namespace MathForGames
             }
         }
 
-
+        ///<summary>
+        ///this is the base class for all objects that will
+        /// be moverd or interacted with in the game
+        /// 
+        /// Create new matrices to transform the actors matrix. The user should be able
+        /// to translate, rotate, scale the actor.
+        /// </summary>
 
         /// <param name="x">Position on the x axis</param>
         /// <param name="y">Position on the y axis</param>
