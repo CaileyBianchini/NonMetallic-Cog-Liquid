@@ -68,5 +68,7 @@ namespace MathLibrary
                     lhs.m31 * rhs.m13 + lhs.m32 * rhs.m23 + lhs.m33 * rhs.m33
                 );
         }
+
+         
     }
 }

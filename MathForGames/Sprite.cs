@@ -36,6 +36,7 @@ namespace MathForGames
             }
         }
 
+
         /// <summary>
         /// Loads the given texture
         /// </summary>

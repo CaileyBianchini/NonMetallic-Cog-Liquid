@@ -192,7 +192,7 @@ namespace MathForGames
             Enemy enemyHigh = new Enemy(0, 5, Color.GREEN, new Vector2(0,10), new Vector2(60, 5), '■', ConsoleColor.Green);
             Enemy enemyMid = new Enemy(10, 10, Color.GREEN, new Vector2(0, 20), new Vector2(60, 10), '■', ConsoleColor.Green);
             Enemy enemyLow = new Enemy(3, 20, Color.GREEN, new Vector2(0, 30), new Vector2(60, 20), '■', ConsoleColor.Green);
-            Player player = new Player(0, 1,Color.YELLOW, '@', ConsoleColor.Red);
+            Player player = new Player(0, 0,Color.YELLOW, ' ', ConsoleColor.Red);
             //Goal goal = new Goal(30, 20,Color.GREEN, player, '!', ConsoleColor.Green);
 
             //Initialize the enmies starting values
