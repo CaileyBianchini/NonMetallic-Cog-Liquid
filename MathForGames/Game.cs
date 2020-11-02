@@ -204,8 +204,18 @@ namespace MathForGames
             enemyMid.Target = player;
             enemyLow.Target = player;
 
+            enemyHigh.SetRotation(0);
+            enemyMid.SetRotation(0);
+            enemyLow.SetRotation(0);
+
+            enemyHigh.SetScale(0, 0);
+            enemyMid.SetScale(0, 0);
+            enemyLow.SetScale(0, 0);
+
             //Set player's starting speed
             player.Speed = 2;
+            player.SetRotation(1.0f);
+            player.SetScale(1, 3);
 
             //Add actors to the scenes
             scene1.AddActor(player);

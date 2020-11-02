@@ -34,17 +34,17 @@ namespace MathForGames
         //rotation
         public void SetRotation(float radions)
         {
-            _rotation.m12 = ((float)Math.Sin(radions));
-            _rotation.m12 = ((float)Math.Cos(radions));
-
-            _rotation.m22 = ((float)Math.Sin(radions));
-            _rotation.m22 = ((float)Math.Cos(radions));
-
             _rotation.m11 = ((float)Math.Sin(radions));
             _rotation.m11 = ((float)Math.Cos(radions));
 
             _rotation.m21 = ((float)Math.Sin(radions));
             _rotation.m21 = ((float)Math.Cos(radions));
+
+            _rotation.m12 = ((float)Math.Sin(radions));
+            _rotation.m12 = ((float)Math.Cos(radions));
+
+            _rotation.m22 = ((float)Math.Sin(radions));
+            _rotation.m22 = ((float)Math.Cos(radions));
         }
 
         public void SetScale(float x, float y)
@@ -56,7 +56,7 @@ namespace MathForGames
         private void UpdateTransform()
         {
             //combine translation, rotation and scale
-            _transform = SetScale() + SetRotation() + SetTranslate();
+            _transform = (_translation * _rotation * _scale);
         }
 
         public Vector2 Forward
@@ -65,11 +65,8 @@ namespace MathForGames
             { 
                 return new Vector2(_transform.m11, _transform.m12); 
             }
-            set
-            {
-                _transform.m11 = value.X;
-                _transform.m12 = value.Y;
-            }
+            //supposed to bearased, will do so when new facing is created.
+            
         }
 
         public Vector2 Position
@@ -77,8 +74,8 @@ namespace MathForGames
             get{return new Vector2(_transform.m13, _transform.m23);}
             set
             {
-                _transform.m13 = value.X;
-                _transform.m23 = value.Y;
+                _translation.m13 = value.X;
+                _translation.m23 = value.Y;
             }
         }
 
@@ -114,7 +111,6 @@ namespace MathForGames
             Position = new Vector2(x, y);
             _velocity = new Vector2();
             _color = color;
-            Forward = new Vector2(1, 0);
         }
 
 
@@ -144,7 +140,6 @@ namespace MathForGames
             if (_velocity.Magnitude <= 0)
                 return;
 
-            Forward = Velocity.Normalized;
         }
 
         public virtual void Start()
@@ -157,6 +152,8 @@ namespace MathForGames
         {
             //Before the actor is moved, update the direction it's facing
             UpdateFacing();
+
+            UpdateTransform();
 
             //Increase position by the current velocity
             Position += _velocity;
