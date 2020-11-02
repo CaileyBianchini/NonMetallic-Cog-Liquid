@@ -14,11 +14,50 @@ namespace MathForGames
     class Actor
     {
         protected char _icon = ' ';
+
         protected Vector2 _velocity;
-        protected Matrix3 _transform;
+        protected Matrix3 _transform = new Matrix3();
+        private Matrix3 _translation = new Matrix3();
+        private Matrix3 _scale = new Matrix3();
+        private Matrix3 _rotation = new Matrix3();
+
         protected ConsoleColor _color;
         protected Color _rayColor;
         public bool Started { get; private set; }
+
+        public void SetTranslate(Vector2 position)
+        {
+            _translation.m13 = position.X;
+            _translation.m23 = position.Y;
+        }
+
+        //rotation
+        public void SetRotation(float radions)
+        {
+            _rotation.m12 = ((float)Math.Sin(radions));
+            _rotation.m12 = ((float)Math.Cos(radions));
+
+            _rotation.m22 = ((float)Math.Sin(radions));
+            _rotation.m22 = ((float)Math.Cos(radions));
+
+            _rotation.m11 = ((float)Math.Sin(radions));
+            _rotation.m11 = ((float)Math.Cos(radions));
+
+            _rotation.m21 = ((float)Math.Sin(radions));
+            _rotation.m21 = ((float)Math.Cos(radions));
+        }
+
+        public void SetScale(float x, float y)
+        {
+           _scale.m13 = x;
+            _scale.m23 = y;
+        }
+
+        private void UpdateTransform()
+        {
+            //combine translation, rotation and scale
+            _transform = SetScale() + SetRotation() + SetTranslate();
+        }
 
         public Vector2 Forward
         {
@@ -32,7 +71,6 @@ namespace MathForGames
                 _transform.m12 = value.Y;
             }
         }
-
 
         public Vector2 Position
         {
@@ -89,6 +127,11 @@ namespace MathForGames
             : this((char)x,y,icon,color)
         {
             _transform = new Matrix3();
+            //maybe \/
+            _translation = new Matrix3();
+            _scale = new Matrix3();
+            _rotation = new Matrix3();
+            //maybe not /\
             _rayColor = rayColor;
         }
 
