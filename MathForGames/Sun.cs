@@ -49,10 +49,10 @@ namespace MathForGames
         public override void Update(float deltaTime)
         {
             //Gets the player's input to determine which direction the actor will move in on each axis 
-            int xDirection = -Convert.ToInt32(Game.GetKeyDown((int)KeyboardKey.KEY_A))
-                + Convert.ToInt32(Game.GetKeyDown((int)KeyboardKey.KEY_D));
-            int yDirection = -Convert.ToInt32(Game.GetKeyDown((int)KeyboardKey.KEY_W))
-                + Convert.ToInt32(Game.GetKeyDown((int)KeyboardKey.KEY_S));
+            int xDirection = -Convert.ToInt32(Game.GetKeyDown((int)KeyboardKey.KEY_J))
+                + Convert.ToInt32(Game.GetKeyDown((int)KeyboardKey.KEY_L));
+            int yDirection = -Convert.ToInt32(Game.GetKeyDown((int)KeyboardKey.KEY_I))
+                + Convert.ToInt32(Game.GetKeyDown((int)KeyboardKey.KEY_K));
 
             //Set the actors current velocity to be the a vector with the direction found scaled by the speed
             Velocity = new Vector2(xDirection, yDirection);

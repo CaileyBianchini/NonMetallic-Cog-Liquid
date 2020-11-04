@@ -208,11 +208,11 @@ namespace MathForGames
             enemyMid.SetTranslate(new Vector2(20, 20));
             enemyLow.SetTranslate(new Vector2(20, 20));
 
-            enemyHigh.SetRotation(0);
+            enemyHigh.SetRotation(1);
             enemyMid.SetRotation(0);
             enemyLow.SetRotation(0);
 
-            enemyHigh.SetScale(0, 0);
+            enemyHigh.SetScale(1, 1);
             enemyMid.SetScale(0, 0);
             enemyLow.SetScale(0, 0);
 
@@ -229,8 +229,30 @@ namespace MathForGames
             scene1.AddActor(enemyMid);
             scene1.AddActor(enemyLow);
             scene2.AddActor(player);
-            
-            
+
+            // ! Space ! //
+            Earth earth = new Earth(50, 50, Color.GREEN, new Vector2(0, 10), new Vector2(60, 5), ' ', ConsoleColor.Green);
+            Sun sun = new Sun(50, 25, Color.YELLOW, ' ', ConsoleColor.Red);
+
+            //Initialize the enmies starting values
+            earth.Speed = 1;
+            earth.Target = sun;
+            earth.SetTranslate(new Vector2(20, 20));
+            earth.SetRotation(2);
+            earth.SetScale(3, 3);
+            earth.Target = player;
+
+            //Set player's starting speed
+            sun.Speed = 2;
+            sun.SetTranslate(new Vector2(10, 10));
+            sun.SetRotation(1);
+            sun.SetScale(2, 3);
+
+            //Add actors to the scenes
+            scene1.AddActor(sun);
+            //scene1.AddActor(goal);
+            scene1.AddActor(earth);
+
             //Sets the starting scene index and adds the scenes to the scenes array
             int startingSceneIndex = 0;
             startingSceneIndex = AddScene(scene1);
@@ -278,10 +300,12 @@ namespace MathForGames
         //Handles all of the main game logic including the main game loop.
         public void Run()
         {
+            // ! SPACESHIPS ! //
             //Call start for all objects in game
+
             Start();
             //Loops the game until either the game is set to be over or the window closes
-            while(!_gameOver && !Raylib.WindowShouldClose())
+            while (!_gameOver && !Raylib.WindowShouldClose())
             {
                 //Stores the current time between frames
                 float deltaTime = Raylib.GetFrameTime();
