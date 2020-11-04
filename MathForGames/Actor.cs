@@ -14,7 +14,7 @@ namespace MathForGames
     /// 
 
     /// <summary>
-    /// 
+    /// create a "solar System" using the matrix heirarchy
     /// </summary>
     class Actor
     {
