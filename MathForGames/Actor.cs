@@ -23,6 +23,9 @@ namespace MathForGames
 
         protected ConsoleColor _color;
         protected Color _rayColor;
+        protected Actor _parent;
+        protected Actor[] _children = new Actor[0];
+
         public bool Started { get; private set; }
 
         public void SetTranslate(Vector2 position)
@@ -34,23 +37,16 @@ namespace MathForGames
         //rotation
         public void SetRotation(float radions)
         {
-            _rotation.m11 = ((float)Math.Sin(radions));
-            _rotation.m11 = ((float)Math.Cos(radions));
-
-            _rotation.m21 = ((float)Math.Sin(radions));
-            _rotation.m21 = ((float)Math.Cos(radions));
-
-            _rotation.m12 = ((float)Math.Sin(radions));
-            _rotation.m12 = ((float)Math.Cos(radions));
-
-            _rotation.m22 = ((float)Math.Sin(radions));
-            _rotation.m22 = ((float)Math.Cos(radions));
+            _rotation.m11 = (float)Math.Cos(radions);
+            _rotation.m21 = -(float)Math.Sin(radions);
+            _rotation.m12 = (float)Math.Sin(radions);
+            _rotation.m22 = (float)Math.Cos(radions);
         }
 
         public void SetScale(float x, float y)
         {
-           _scale.m13 = x;
-            _scale.m23 = y;
+           _scale.m11 = x;
+            _scale.m22 = y;
         }
 
         private void UpdateTransform()
@@ -63,10 +59,8 @@ namespace MathForGames
         {
             get 
             { 
-                return new Vector2(_transform.m11, _transform.m12); 
+                return new Vector2(_transform.m11, _transform.m21); 
             }
-            //supposed to bearased, will do so when new facing is created.
-            
         }
 
         public Vector2 Position
@@ -131,6 +125,45 @@ namespace MathForGames
             _rayColor = rayColor;
         }
 
+        public void AddChild(Actor child)
+        {
+            Actor[] tempArray = new Actor[_children.Length + 1];
+
+            for (int i = 0; i < _children.Length; i++)
+            {
+                tempArray[i] = _children[i];
+            }
+
+            tempArray[_children.Length] = child;
+            _children = tempArray;
+        }
+
+        public bool RemoveChild(Actor child)
+        {
+            bool childRemoved = false;
+            if (child == null)
+                return false;
+
+            Actor[] tempArray = new Actor[_children.Length - 1];
+
+            int j = 0;
+            for (int i = 0; i < _children.Length; i++) ;
+            {
+                if (child != _children[i])
+                {
+                    tempArray[j] = _children[i];
+                    j++;
+                }
+                else
+                {
+                    childRemoved = true;
+                }
+            }
+
+            _children = tempArray;
+            return childRemoved;
+        }
+
         /// <summary>
         /// Updates the actors forward vector to be
         /// the last direction it moved in
@@ -156,7 +189,7 @@ namespace MathForGames
             UpdateTransform();
 
             //Increase position by the current velocity
-            Position += _velocity;
+            Position += _velocity * deltaTime;
 
             //Changes position by using Tranform
             //_position *= _transform;
