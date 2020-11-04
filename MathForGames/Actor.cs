@@ -31,6 +31,7 @@ namespace MathForGames
         protected Color _rayColor;
         protected Actor _parent;
         protected Actor[] _children = new Actor[0];
+        protected float _rotationAngle;
 
         public bool Started { get; private set; }
 
@@ -49,6 +50,32 @@ namespace MathForGames
             _rotation.m22 = (float)Math.Cos(radions);
         }
 
+        public void Rotate(float radians)
+        {
+            _rotationAngle += radians;
+            SetRotation(_rotationAngle);
+        }
+
+        public void LookAt(Vector2 position)
+        {
+
+            Vector2 direction = (position - LocalPosition).Normalized;
+
+            float dotProd = Vector2.DotProduct(Forward, direction);
+            if (Math.Abs(dotProd) > 1)
+                return;
+            float angle = (float)Math.Acos(dotProd);
+
+            Vector2 perp = new Vector2(direction.Y, -direction.X);
+
+            float perpDot = Vector2.DotProduct(perp, Forward);
+
+            if (perpDot != 0)
+                angle *= -perpDot / Math.Abs(perpDot);
+
+            Rotate(angle);
+        }
+
         public void SetScale(float x, float y)
         {
            _scale.m11 = x;
@@ -59,6 +86,20 @@ namespace MathForGames
         {
             //combine translation, rotation and scale
             _localTransform = (_translation * _rotation * _scale);
+        }
+
+        private void UpdateGlobalTransform()
+        {
+            if (_parent != null)
+                _globalTransform = _parent._globalTransform * _localTransform;
+            else
+                _globalTransform = _localTransform;
+
+            //char _children = { };
+
+            //foreach (child in _children)
+            //    child.UpdateGlobalTransform();
+
         }
 
         public Vector2 Forward
@@ -85,6 +126,10 @@ namespace MathForGames
             {
                 _translation.m13 = value.X;
                 _translation.m23 = value.Y;
+                //gotta fix this somehow
+                Vector2 lookPosition = LocalPosition + value.Normalized;
+                LookAt(lookPosition);
+                
             }
         }
 

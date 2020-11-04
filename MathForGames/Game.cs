@@ -231,15 +231,15 @@ namespace MathForGames
             scene2.AddActor(player);
 
             // ! Space ! //
-            Earth earth = new Earth(50, 50, Color.GREEN, new Vector2(0, 10), new Vector2(60, 5), ' ', ConsoleColor.Green);
-            Sun sun = new Sun(50, 25, Color.YELLOW, 'S', ConsoleColor.Red);
+            Earth earth = new Earth(50, 5, Color.GREEN, new Vector2(4, 30), new Vector2(70, 3), ' ', ConsoleColor.Green);
+            Sun sun = new Sun(50, 25, Color.YELLOW, ' ', ConsoleColor.Red);
 
             //Initialize the enmies starting values
             earth.Speed = 1;
             earth.Target = sun;
             earth.SetTranslate(new Vector2(20, 20));
-            earth.SetRotation(2);
-            earth.SetScale(3, 3);
+            earth.SetRotation(0);
+            earth.SetScale(1, 1);
             earth.Target = player;
 
             //Set player's starting speed
