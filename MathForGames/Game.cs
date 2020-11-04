@@ -232,7 +232,7 @@ namespace MathForGames
 
             // ! Space ! //
             Earth earth = new Earth(50, 50, Color.GREEN, new Vector2(0, 10), new Vector2(60, 5), ' ', ConsoleColor.Green);
-            Sun sun = new Sun(50, 25, Color.YELLOW, ' ', ConsoleColor.Red);
+            Sun sun = new Sun(50, 25, Color.YELLOW, 'S', ConsoleColor.Red);
 
             //Initialize the enmies starting values
             earth.Speed = 1;
