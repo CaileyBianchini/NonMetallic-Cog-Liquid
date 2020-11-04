@@ -8,6 +8,7 @@ namespace MathForGames
 {
     class Earth : Actor
     {
+        //similar to enimes but will be child
         private Sprite _sprite;
 
         /// <param name="x">Position on the x axis</param>
