@@ -11,12 +11,18 @@ namespace MathForGames
     /// This is the base class for all objects that will 
     /// be moved or interacted with in the game
     /// </summary>
+    /// 
+
+    /// <summary>
+    /// 
+    /// </summary>
     class Actor
     {
         protected char _icon = ' ';
 
         protected Vector2 _velocity;
-        protected Matrix3 _transform = new Matrix3();
+        protected Matrix3 _globalTransform;
+        protected Matrix3 _localTransform = new Matrix3();
         private Matrix3 _translation = new Matrix3();
         private Matrix3 _scale = new Matrix3();
         private Matrix3 _rotation = new Matrix3();
@@ -52,20 +58,29 @@ namespace MathForGames
         private void UpdateTransform()
         {
             //combine translation, rotation and scale
-            _transform = (_translation * _rotation * _scale);
+            _localTransform = (_translation * _rotation * _scale);
         }
 
         public Vector2 Forward
         {
             get 
             { 
-                return new Vector2(_transform.m11, _transform.m21); 
+                return new Vector2(_localTransform.m11, _localTransform.m21); 
             }
         }
 
-        public Vector2 Position
+        public Vector2 WorldPosition
         {
-            get{return new Vector2(_transform.m13, _transform.m23);}
+            get
+            {
+                return new Vector2(_globalTransform.m13, _globalTransform.m23);
+            }
+        }
+
+
+        public Vector2 LocalPosition
+        {
+            get{return new Vector2(_localTransform.m13, _localTransform.m23);}
             set
             {
                 _translation.m13 = value.X;
@@ -101,8 +116,8 @@ namespace MathForGames
         {
             _rayColor = Color.WHITE;
             _icon = icon;
-            _transform = new Matrix3();
-            Position = new Vector2(x, y);
+            _localTransform = new Matrix3();
+            LocalPosition = new Vector2(x, y);
             _velocity = new Vector2();
             _color = color;
         }
@@ -116,7 +131,7 @@ namespace MathForGames
         public Actor(float x, float y, Color rayColor, char icon = ' ', ConsoleColor color = ConsoleColor.White)
             : this((char)x,y,icon,color)
         {
-            _transform = new Matrix3();
+            _localTransform = new Matrix3();
             //maybe \/
             _translation = new Matrix3();
             _scale = new Matrix3();
@@ -136,6 +151,7 @@ namespace MathForGames
 
             tempArray[_children.Length] = child;
             _children = tempArray;
+            child._parent = this;
         }
 
         public bool RemoveChild(Actor child)
@@ -147,7 +163,7 @@ namespace MathForGames
             Actor[] tempArray = new Actor[_children.Length - 1];
 
             int j = 0;
-            for (int i = 0; i < _children.Length; i++) ;
+            for (int i = 0; i < _children.Length; i++)
             {
                 if (child != _children[i])
                 {
@@ -161,6 +177,7 @@ namespace MathForGames
             }
 
             _children = tempArray;
+            child._parent = null;
             return childRemoved;
         }
 
@@ -189,7 +206,7 @@ namespace MathForGames
             UpdateTransform();
 
             //Increase position by the current velocity
-            Position += _velocity * deltaTime;
+            LocalPosition += _velocity * deltaTime;
 
             //Changes position by using Tranform
             //_position *= _transform;
@@ -199,12 +216,12 @@ namespace MathForGames
         {
             //Draws the actor and a line indicating it facing to the raylib window.
             //Scaled to match console movement
-            Raylib.DrawText(_icon.ToString(), (int)Position.X * 32, (int)(Position.Y * 32), 32, _rayColor);
+            Raylib.DrawText(_icon.ToString(), (int)LocalPosition.X * 32, (int)(LocalPosition.Y * 32), 32, _rayColor);
             Raylib.DrawLine(
-                (int)(Position.X * 32),
-                (int)(Position.Y * 32),
-                (int)((Position.X + Forward.X) * 32),
-                (int)((Position.Y + Forward.Y) * 32),
+                (int)(LocalPosition.X * 32),
+                (int)(LocalPosition.Y * 32),
+                (int)((LocalPosition.X + Forward.X) * 32),
+                (int)((LocalPosition.Y + Forward.Y) * 32),
                 Color.WHITE
             );
 
@@ -212,10 +229,10 @@ namespace MathForGames
             Console.ForegroundColor = _color;
 
             //Only draws the actor on the console if it is within the bounds of the window
-            if(Position.X >= 0 && Position.X < Console.WindowWidth 
-                && Position.Y >= 0  && Position.Y < Console.WindowHeight)
+            if(LocalPosition.X >= 0 && LocalPosition.X < Console.WindowWidth 
+                && LocalPosition.Y >= 0  && LocalPosition.Y < Console.WindowHeight)
             {
-                Console.SetCursorPosition((int)Position.X, (int)Position.Y);
+                Console.SetCursorPosition((int)LocalPosition.X, (int)LocalPosition.Y);
                 Console.Write(_icon);
             }
             

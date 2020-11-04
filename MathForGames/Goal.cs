@@ -40,7 +40,7 @@ namespace MathForGames
         /// <returns></returns>
         private bool CheckPlayerDistance()
         {
-            float distance = (_player.Position - Position).Magnitude;
+            float distance = (_player.LocalPosition - LocalPosition).Magnitude;
             return distance <= 1;
         }
 

@@ -1,18 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using MathLibrary;
 
 namespace MathForGames
 {
     class Scene
     {
         private Actor[] _actors;
+        private Matrix3 _transform;
 
         public bool Started { get; private set; }
 
         public Scene()
         {
             _actors = new Actor[0];
+        }
+
+        public Matrix3 World
+        {
+           get { return _transform; }
         }
 
         public void AddActor(Actor actor)
