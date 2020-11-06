@@ -109,9 +109,32 @@ namespace MathForGames
             return actorRemoved;
         }
 
+
+        public bool CheckCollision(Actor other)
+        {
+            return false;
+        }
+
+        /// <summary>
+        /// Called whena collision occurs between this actor and another.
+        /// </summary>
+        /// <param name="other">the actor that this actor is checking collision against</param>
+        public virtual void OnCollision(Actor other)
+        {
+            
+        }
+
         public virtual void Start()
         {
             Started = true;
+        }
+
+        /// <summary>
+        /// checks to see is actor collided with another actor
+        /// </summary>
+        private void CheckCollision()
+        {
+            
         }
 
         public virtual void Update(float deltaTime)
@@ -123,6 +146,7 @@ namespace MathForGames
 
                 _actors[i].Update(deltaTime);
             }
+            CheckCollision();
         }
 
         public virtual void Draw()

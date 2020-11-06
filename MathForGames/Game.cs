@@ -247,6 +247,8 @@ namespace MathForGames
             sun.SetTranslate(new Vector2(10, 10));
             sun.SetRotation(1);
             sun.SetScale(2, 3);
+            //AddChild(earth); //<-------------------------------------------------Trying to make earth a child and Sun the parent
+            sun.AddChild(earth);
 
             //Add actors to the scenes
             scene1.AddActor(sun);

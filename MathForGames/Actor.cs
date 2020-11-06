@@ -32,6 +32,7 @@ namespace MathForGames
         protected Actor _parent;
         protected Actor[] _children = new Actor[0];
         protected float _rotationAngle;
+        private float _collisionRadius;
 
         public bool Started { get; private set; }
 
@@ -54,6 +55,15 @@ namespace MathForGames
         {
             _rotationAngle += radians;
             SetRotation(_rotationAngle);
+        }
+
+        public void localRotate(float angle)
+        {
+            Matrix3 m = new Matrix3((float)Math.Cos(angle), -(float)Math.Sin(angle), 0, (float)Math.Sin(angle), (float)Math.Cos(angle), 0, 0, 0, 1);
+
+
+            // temperary:\/ original:m._localTransform = m._localTransform * m;
+            _localTransform = _localTransform * m;
         }
 
         public void LookAt(Vector2 position)
@@ -95,11 +105,11 @@ namespace MathForGames
             else
                 _globalTransform = _localTransform;
 
-            //char _children = { };
+            Actor[] tempArray = new Actor[_children.Length];
 
-            //foreach (child in _children)
-            //    child.UpdateGlobalTransform();
-
+            //       \/ Actor     \/_children
+            foreach (var child in tempArray)
+                child.UpdateGlobalTransform();
         }
 
         public Vector2 Forward
@@ -255,6 +265,8 @@ namespace MathForGames
 
             //Changes position by using Tranform
             //_position *= _transform;
+
+            UpdateGlobalTransform();
         }
 
         public virtual void Draw()
