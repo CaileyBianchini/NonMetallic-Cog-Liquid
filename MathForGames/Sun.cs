@@ -46,6 +46,8 @@ namespace MathForGames
             base.Draw();
         }
 
+        float a = 0.0f;
+
         public override void Update(float deltaTime)
         {
             //Gets the player's input to determine which direction the actor will move in on each axis 
@@ -57,6 +59,11 @@ namespace MathForGames
             //Set the actors current velocity to be the a vector with the direction found scaled by the speed
             Velocity = new Vector2(xDirection, yDirection);
             Velocity = Velocity.Normalized * Speed;
+
+            Rotate(a);
+            SetRotation(a);
+
+            a = a + 0.01f;
 
             base.Update(deltaTime);
         }

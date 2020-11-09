@@ -44,15 +44,9 @@ namespace MathForGames
             return _scenes[index];
         }
 
-
-        /// <summary>
-        /// Returns the scene that is at the index of the 
-        /// current scene index
-        /// </summary>
-        /// <returns></returns>
-        public static int GetCurrentScene
+        public static Scene CurrentScene
         {
-            get{ return _currentSceneIndex; }
+            get { return _scenes[_currentSceneIndex]; }
         }
 
         /// <summary>
@@ -217,37 +211,38 @@ namespace MathForGames
             enemyLow.SetScale(0, 0);
 
             //Set player's starting speed
-            player.Speed = 2;
+            player.Speed = 3;
             player.SetTranslate(new Vector2 (10, 10));
             player.SetRotation(1);
             player.SetScale(2, 3);
 
+            //Goal
+            goal.SetTranslate(new Vector2(30, 30));
+
             //Add actors to the scenes
             scene1.AddActor(player);
-            //scene1.AddActor(goal);
+            scene1.AddActor(goal);
             scene1.AddActor(enemyHigh);
             scene1.AddActor(enemyMid);
             scene1.AddActor(enemyLow);
             scene2.AddActor(player);
 
             // ! Space ! //
-            Earth earth = new Earth(50, 5, Color.GREEN, new Vector2(4, 30), new Vector2(70, 3), ' ', ConsoleColor.Green);
+            Earth earth = new Earth(5, 5, Color.GREEN, new Vector2(), new Vector2(), ' ', ConsoleColor.Green);
             Sun sun = new Sun(50, 25, Color.YELLOW, ' ', ConsoleColor.Red);
 
             //Initialize the enmies starting values
             earth.Speed = 1;
             earth.Target = sun;
-            earth.SetTranslate(new Vector2(20, 20));
-            earth.SetRotation(0);
+            earth.SetTranslate(new Vector2(30, 20));
             earth.SetScale(1, 1);
             earth.Target = player;
 
-            //Set player's starting speed
+            //Set sun's starting speed
             sun.Speed = 2;
-            sun.SetTranslate(new Vector2(10, 10));
+            sun.SetTranslate(new Vector2(30, 10));
             sun.SetRotation(1);
-            sun.SetScale(2, 3);
-            //AddChild(earth); //<-------------------------------------------------Trying to make earth a child and Sun the parent
+            sun.SetScale(6, 6);
             sun.AddChild(earth);
 
             //Add actors to the scenes
@@ -304,7 +299,6 @@ namespace MathForGames
         {
             // ! SPACESHIPS ! //
             //Call start for all objects in game
-
             Start();
             //Loops the game until either the game is set to be over or the window closes
             while (!_gameOver && !Raylib.WindowShouldClose())

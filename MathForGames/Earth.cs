@@ -139,10 +139,11 @@ namespace MathForGames
 
         public override void Draw()
         {
-            _sprite.Draw(_localTransform);
+            _sprite.Draw(_globalTransform);
             base.Draw();
         }
 
+        float a = 0.0f;
         public override void Update(float deltaTime)
         {
             //If the target can be seen change the color to red and reset the player's position
@@ -156,7 +157,13 @@ namespace MathForGames
             {
                 _rayColor = Color.BLUE;
             }
-            UpdatePatrolLocation();
+
+            Rotate(a);
+            SetRotation(a);
+            localRotate(a);
+
+            a = a + 0.2f;
+
             base.Update(deltaTime);
         }
     }
