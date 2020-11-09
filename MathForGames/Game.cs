@@ -228,7 +228,7 @@ namespace MathForGames
             scene2.AddActor(player);
 
             // ! Space ! //
-            Earth earth = new Earth(5, 5, Color.GREEN, new Vector2(), new Vector2(), ' ', ConsoleColor.Green);
+            Earth earth = new Earth(10, 10, Color.GREEN, new Vector2(), new Vector2(), ' ', ConsoleColor.Green);
             Sun sun = new Sun(50, 25, Color.YELLOW, ' ', ConsoleColor.Red);
 
             //Initialize the enmies starting values
