@@ -88,8 +88,8 @@ namespace MathLibrary
         {
             return new Matrix3
                 (
-                    0, 0, position.X,
-                    0, 0, position.Y,
+                    1, 0, position.X,
+                    0, 1, position.Y,
                     0, 0, 1
                 );
         }
