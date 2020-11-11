@@ -233,8 +233,6 @@ namespace MathForGames
 
             //Initialize the enmies starting values
             earth.Speed = 1;
-            earth.Target = sun;
-            earth.SetTranslate(new Vector2(30, 20));
             earth.SetScale(1, 1);
             earth.SetRotation(1);
             earth.Target = player;
