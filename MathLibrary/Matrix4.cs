@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MathLibrary
 {
-    class Matrix4
+    public class Matrix4
     {
         public float m11, m12, m13, m21, m22, m23, m31, m32, m33;
 
@@ -84,23 +84,23 @@ namespace MathLibrary
                 0, 0, 1);
         }
 
-        public static Matrix4 CreateTranslation(Vector2 position)
+        public static Matrix4 CreateTranslation(Vector3 position)
         {
             return new Matrix4
                 (
                     1, 0, position.X,
                     0, 1, position.Y,
-                    0, 0, 1
+                    0, 0, position.Z
                 );
         }
 
-        public static Matrix4 CreateScale(Vector2 scale)
+        public static Matrix4 CreateScale(Vector3 scale)
         {
             return new Matrix4
                 (
                     scale.X, 0, 0,
                     0, scale.Y, 0,
-                    0, 0, 1
+                    0, 0, scale.Z
                 );
         }
     }
