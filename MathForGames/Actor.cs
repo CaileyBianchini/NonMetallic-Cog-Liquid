@@ -31,15 +31,21 @@ namespace MathForGames
         protected Color _rayColor;
         protected Actor _parent;
         protected Actor[] _children = new Actor[0];
-        protected float _rotationAngle;
+        protected float _rotationAngle; //not needed for lookout
         private float _collisionRadius;
 
         public bool Started { get; private set; }
 
+        //SET 
         public void SetTranslate(Vector2 position)
         {
-            _translation.m13 = position.X;
-            _translation.m23 = position.Y;
+            _translation = Matrix3.CreateTranslation(position);
+        }
+
+        public void SetTranslate(float x, float y)
+        {
+            _translation.m13 = x;
+            _translation.m23 = y;
         }
 
         //rotation
@@ -53,8 +59,7 @@ namespace MathForGames
 
         public void Rotate(float radians)
         {
-            _rotationAngle += radians;
-            SetRotation(_rotationAngle);
+            _rotation *= Matrix3.CreateRotation(radians);
         }
 
         public void localRotate(float angle)
@@ -88,8 +93,7 @@ namespace MathForGames
 
         public void SetScale(float x, float y)
         {
-           _scale.m11 = x;
-            _scale.m22 = y;
+            _scale = Matrix3.CreateScale(new Vector2(x, y));
         }
 
         private void UpdateTransform()
@@ -102,11 +106,11 @@ namespace MathForGames
         {
 
             if (_parent != null)
-                _globalTransform = _parent._globalTransform * _localTransform;
+                _globalTransform = _parent._globalTransform * _localTransform ;
             else
                 _globalTransform = Game.CurrentScene.World * _localTransform;
 
-            //parently not needed - Jude
+            //parently not needed - ha punny!
             //foreach (Actor child in _children)
             //    child.UpdateGlobalTransform();
         }
@@ -115,7 +119,7 @@ namespace MathForGames
         {
             get 
             { 
-                return new Vector2(_localTransform.m11, _localTransform.m21); 
+                return new Vector2(_globalTransform.m11, _globalTransform.m21); 
             }
         }
 
@@ -266,8 +270,6 @@ namespace MathForGames
             //_position *= _transform;
 
             UpdateGlobalTransform();
-
-            
         }
 
         public virtual void Draw()

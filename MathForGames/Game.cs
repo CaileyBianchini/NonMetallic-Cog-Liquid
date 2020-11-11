@@ -235,6 +235,7 @@ namespace MathForGames
             earth.Speed = 1;
             earth.SetScale(1, 1);
             earth.SetRotation(1);
+            earth.SetTranslate(0, 5);
             earth.Target = player;
 
             //Set sun's starting speed
