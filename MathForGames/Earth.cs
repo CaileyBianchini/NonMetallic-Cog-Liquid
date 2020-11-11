@@ -11,9 +11,6 @@ namespace MathForGames
         //similar to enimes but will be child
         private Actor _target;
         private Color _alertColor;
-        private Vector2 _patrolPointA;
-        private Vector2 _patrolPointB;
-        private Vector2 _currentPoint;
         private float _speed = 1;
         private Sprite _sprite;
 
@@ -35,40 +32,13 @@ namespace MathForGames
             set { _target = value; }
         }
 
-        public Vector2 PatrolPointA
-        {
-            get
-            {
-                return _patrolPointA;
-            }
-            set
-            {
-                _patrolPointA = value;
-            }
-        }
-
-        public Vector2 PatrolPointB
-        {
-            get
-            {
-                return _patrolPointB;
-            }
-            set
-            {
-                _patrolPointB = value;
-            }
-        }
-
         /// <param name="x">Position on the x axis</param>
         /// <param name="y">Position on the y axis</param>
         /// <param name="icon">The symbol that will appear when drawn</param>
         /// <param name="color">The color of the symbol that will appear when drawn</param>
-        public Earth(float x, float y, Vector2 patrolPointA, Vector2 patrolPointB, char icon = ' ', ConsoleColor color = ConsoleColor.White)
+        public Earth(float x, float y, char icon = ' ', ConsoleColor color = ConsoleColor.White)
             : base((char)x, y, icon, color)
         {
-            PatrolPointA = patrolPointA;
-            PatrolPointB = patrolPointB;
-            _currentPoint = PatrolPointA;
         }
 
         /// <param name="x">Position on the x axis</param>
@@ -76,14 +46,10 @@ namespace MathForGames
         /// <param name="rayColor">The color of the symbol that will appear when drawn to raylib</param>
         /// <param name="icon">The symbol that will appear when drawn</param>
         /// <param name="color">The color of the symbol that will appear when drawn to the console</param>
-        public Earth(float x, float y, Color rayColor, Vector2 patrolPointA, Vector2 patrolPointB, char icon = ' ', ConsoleColor color = ConsoleColor.White)
+        public Earth(float x, float y, Color rayColor, char icon = ' ', ConsoleColor color = ConsoleColor.White)
             : base(x, y, rayColor, icon, color)
         {
             _alertColor = Color.RED;
-            PatrolPointA = patrolPointA;
-            PatrolPointB = patrolPointB;
-            _currentPoint = PatrolPointA;
-
             _sprite = new Sprite("Images/earth.png");
         }
 
@@ -116,26 +82,6 @@ namespace MathForGames
             return false;
         }
 
-        /// <summary>
-        /// Updates the current location the enemy is traveling to
-        /// once its reached a patrol point.
-        /// </summary>
-        private void UpdatePatrolLocation()
-        {
-            //Calculate the distance between the current patrol point and the current position
-            Vector2 direction = _currentPoint - LocalPosition;
-            float distance = direction.Magnitude;
-
-            //Switch to the new patrol point if the enemy is within distance of the current one
-            if (_currentPoint == PatrolPointA && distance <= 1)
-                _currentPoint = PatrolPointB;
-            else if (_currentPoint == PatrolPointB && distance <= 1)
-                _currentPoint = PatrolPointA;
-
-            //Calcute new velocity to travel to the next waypoint
-            direction = _currentPoint - LocalPosition;
-            Velocity = direction.Normalized * Speed;
-        }
 
         public override void Draw()
         {

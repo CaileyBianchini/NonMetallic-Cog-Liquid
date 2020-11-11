@@ -198,17 +198,17 @@ namespace MathForGames
             enemyMid.Target = player;
             enemyLow.Target = player;
 
-            enemyHigh.SetTranslate(new Vector2(20, 20));
+            enemyHigh.SetTranslate(new Vector2(15, 15));
             enemyMid.SetTranslate(new Vector2(20, 20));
-            enemyLow.SetTranslate(new Vector2(20, 20));
+            enemyLow.SetTranslate(new Vector2(25, 25));
 
             enemyHigh.SetRotation(1);
-            enemyMid.SetRotation(0);
-            enemyLow.SetRotation(0);
+            enemyMid.SetRotation(2);
+            enemyLow.SetRotation(3);
 
             enemyHigh.SetScale(1, 1);
-            enemyMid.SetScale(0, 0);
-            enemyLow.SetScale(0, 0);
+            enemyMid.SetScale(2, 2);
+            enemyLow.SetScale(3, 3);
 
             //Set player's starting speed
             player.Speed = 3;
@@ -228,7 +228,7 @@ namespace MathForGames
             scene2.AddActor(player);
 
             // ! Space ! //
-            Earth earth = new Earth(10, 10, Color.GREEN, new Vector2(), new Vector2(), ' ', ConsoleColor.Green);
+            Earth earth = new Earth(10, 10, Color.GREEN, ' ', ConsoleColor.Green);
             Sun sun = new Sun(50, 25, Color.YELLOW, ' ', ConsoleColor.Red);
 
             //Initialize the enmies starting values
@@ -236,6 +236,7 @@ namespace MathForGames
             earth.Target = sun;
             earth.SetTranslate(new Vector2(30, 20));
             earth.SetScale(1, 1);
+            earth.SetRotation(1);
             earth.Target = player;
 
             //Set sun's starting speed
