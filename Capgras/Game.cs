@@ -6,7 +6,7 @@ using System.Threading;
 using MathLibrary;
 using Raylib_cs;
 
-namespace MathForGames
+namespace Capgras
 {
     class Game
     {

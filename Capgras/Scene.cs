@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using MathLibrary;
 
-namespace MathForGames
+namespace Capgras
 {
     class Scene
     {

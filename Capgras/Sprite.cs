@@ -4,7 +4,7 @@ using System.Text;
 using MathLibrary;
 using Raylib_cs;
 
-namespace MathForGames
+namespace Capgras
 {
     class Sprite
     {
