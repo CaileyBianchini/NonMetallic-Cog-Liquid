@@ -183,7 +183,7 @@ namespace Capgras
             Scene scene2 = new Scene();
 
             //Scene
-            Bedroom bedroom = new Bedroom(50, 50, Color.YELLOW, ' ', ConsoleColor.Red);
+            Bedroom bedroom = new Bedroom(50, 50, Color.YELLOW, ' ', ConsoleColor.Red); //I think the math is incorrect so I can't resize it and 
             bedroom.SetTranslate(new Vector2(25, 25));
             bedroom.SetRotation(1);
             bedroom.SetScale(70, 70);
@@ -199,7 +199,7 @@ namespace Capgras
 
             //Scenes
             scene1.AddActor(bedroom);
-            scene1.AddActor(door);
+            //scene1.AddActor(door); //must be where its at
             scene1.AddActor(player);
 
             //Sets the starting scene index and adds the scenes to the scenes array
