@@ -89,6 +89,14 @@ namespace MathLibrary
             return (lhs.X * rhs.X) + (lhs.Y * rhs.Y) + (lhs.Z * rhs.Z) + (lhs.W * rhs.W);
         }
 
+        public static Vector4 CrossProduct(Vector4 lhs, Vector4 rhs)
+        {
+            return new Vector4((lhs.Y * rhs.Z) - (lhs.Z * rhs.Y),
+                                (lhs.Z * rhs.X) - (lhs.X * rhs.Z),
+                                (lhs.X * rhs.Y) - (lhs.Y * rhs.X),
+                                0);
+        }
+
         public static Vector4 operator +(Vector4 lhs, Vector4 rhs)
         {
             return new Vector4(lhs.X += rhs.X, lhs.Y += rhs.Y, lhs.Z += rhs.Z, lhs.W += rhs.W);
@@ -101,6 +109,11 @@ namespace MathLibrary
 
         //this helps with scaleing (is that how you spell it?
         public static Vector4 operator *(Vector4 lhs, float scalar)
+        {
+            return new Vector4(lhs.X * scalar, lhs.Y * scalar, lhs.Z * scalar, lhs.W * scalar);
+        }
+
+        public static Vector4 operator *(float scalar, Vector4 lhs)
         {
             return new Vector4(lhs.X * scalar, lhs.Y * scalar, lhs.Z * scalar, lhs.W * scalar);
         }

@@ -78,6 +78,14 @@ namespace MathLibrary
             return (lhs.X * rhs.X) + (lhs.Y * rhs.Y) + (lhs.Z * rhs.Z);
         }
 
+        public static Vector3 CrossProduct(Vector3 lhs, Vector3 rhs)
+        {
+            return new Vector3 ((lhs.Y * rhs.Z) - (lhs.Z * rhs.Y),
+                                (lhs.Z * rhs.X) - (lhs.X * rhs.Z),
+                                (lhs.X * rhs.Y) - (lhs.Y * rhs.X));
+        }
+
+
         public static Vector3 operator +(Vector3 lhs, Vector3 rhs)
         {
             return new Vector3(lhs.X += rhs.X, lhs.Y += rhs.Y, lhs.Z += rhs.Z);
@@ -94,9 +102,15 @@ namespace MathLibrary
             return new Vector3(lhs.X * scalar, lhs.Y * scalar, lhs.Z * scalar);
         }
 
+        public static Vector3 operator *(float scalar, Vector3 lhs)
+        {
+            return new Vector3(lhs.X * scalar, lhs.Y * scalar, lhs.Z * scalar);
+        }
+
         public static Vector3 operator /(Vector3 lhs, float scalar)
         {
             return new Vector3(lhs.X / scalar, lhs.Y / scalar, lhs.Z / scalar);
         }
+
     }
 }

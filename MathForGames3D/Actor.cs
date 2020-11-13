@@ -55,7 +55,7 @@ namespace MathForGames3D
 
         public void localRotate(float angle)
         {
-            Matrix4 m = new Matrix4((float)Math.Cos(angle), -(float)Math.Sin(angle), 0, (float)Math.Sin(angle), (float)Math.Cos(angle), 0, 0, 0, 1);
+            Matrix4 m = new Matrix4((float)Math.Cos(angle), -(float)Math.Sin(angle), 0, 0, (float)Math.Sin(angle), (float)Math.Cos(angle), 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
 
 
             // temperary:\/ original:m._localTransform = m._localTransform * m;
