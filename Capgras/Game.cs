@@ -194,8 +194,12 @@ namespace Capgras
             player.SetRotation(0);
             player.SetScale(9, 9);
 
+            Door door = new Door(70, 70, Color.GREEN, player, '!', ConsoleColor.Green);
+            door.SetTranslate(new Vector2(100, 20));
+
             //Scenes
             scene1.AddActor(bedroom);
+            scene1.AddActor(door);
             scene1.AddActor(player);
 
             //Sets the starting scene index and adds the scenes to the scenes array
