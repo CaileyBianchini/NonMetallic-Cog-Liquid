@@ -171,17 +171,32 @@ namespace Capgras
         public void Start()
         {
             //Creates a new window for raylib
-            Raylib.InitWindow(1920, 1080, "Math For Games");
+            Raylib.InitWindow(1920, 1080, "Capgras");
             Raylib.SetTargetFPS(30);
 
             //Set up console window
             Console.CursorVisible = false;
-            Console.Title = "Math For Games";
+            Console.Title = "Capgras";
 
             //Create a new scene for our actors to exist in
             Scene scene1 = new Scene();
             Scene scene2 = new Scene();
 
+            //Scene
+            Bedroom bedroom = new Bedroom(50, 50, Color.YELLOW, ' ', ConsoleColor.Red);
+            bedroom.SetTranslate(new Vector2(25, 25));
+            bedroom.SetRotation(1);
+            bedroom.SetScale(70, 70);
+
+            Player player = new Player(0, 0, Color.YELLOW, ' ', ConsoleColor.Red);
+            player.Speed = 3;
+            player.SetTranslate(new Vector2(10, 10));
+            player.SetRotation(0);
+            player.SetScale(9, 9);
+
+            //Scenes
+            scene1.AddActor(bedroom);
+            scene1.AddActor(player);
 
             //Sets the starting scene index and adds the scenes to the scenes array
             int startingSceneIndex = 0;
