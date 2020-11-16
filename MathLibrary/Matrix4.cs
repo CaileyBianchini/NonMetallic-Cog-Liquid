@@ -98,31 +98,21 @@ namespace MathLibrary
 
         //CREATION
 
-        public static Matrix4 CreateRotation(float radians)
-        {
-            return new Matrix4(
-                (float)Math.Cos(radians), (float)Math.Sin(radians), 0, 0,
-                -(float)Math.Sin(radians), (float)Math.Cos(radians), 0, 0,
-                0, 0, 1, 0,
-                0, 0, 0, 1);
-        }
-
-        //will be earased after figureing it out \/
         public static Matrix4 CreateRotationX(float radians)
         {
             return new Matrix4(
-                (float)Math.Cos(radians), (float)Math.Sin(radians), 0, 0,
-                -(float)Math.Sin(radians), (float)Math.Cos(radians), 0, 0,
-                0, 0, 1, 0,
+                1, 0, 0, 0,
+                0, (float)Math.Cos(radians), (float)Math.Sin(radians), 0,
+                0, -(float)Math.Sin(radians), (float)Math.Cos(radians), 0,
                 0, 0, 0, 1);
         }
 
         public static Matrix4 CreateRotationY(float radians)
         {
             return new Matrix4(
-                (float)Math.Cos(radians), (float)Math.Sin(radians), 0, 0,
-                -(float)Math.Sin(radians), (float)Math.Cos(radians), 0, 0,
-                0, 0, 1, 0,
+                (float)Math.Cos(radians), 0, -(float)Math.Sin(radians), 0,
+                0, 1, 0, 0,
+                (float)Math.Sin(radians), 0, (float)Math.Cos(radians), 0,
                 0, 0, 0, 1);
         }
 
@@ -134,8 +124,6 @@ namespace MathLibrary
                 0, 0, 1, 0,
                 0, 0, 0, 1);
         }
-
-        //will be earased after figureing it out /\
 
         public static Matrix4 CreateTranslation(Vector3 position)
         {
