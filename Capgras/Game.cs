@@ -18,24 +18,14 @@ namespace Capgras
             get { return _currentSceneIndex; }
         }
 
+        //Below are the basic codes
         public static ConsoleColor DefaultColor { get; set; } = ConsoleColor.White;
 
-        /// <summary>
-        /// Used to set the value of game over.
-        /// </summary>
-        /// <param name="value">If this value is true, the game will end</param>
         public static void SetGameOver(bool value)
         {
             _gameOver = value;
         }
 
-
-        /// <summary>
-        /// Returns the scene at the index given.
-        /// Returns an empty scene if the index is out of bounds
-        /// </summary>
-        /// <param name="index">The index of the desired scene</param>
-        /// <returns></returns>
         public static Scene GetScene(int index)
         {
             if (index < 0 || index >= _scenes.Length)
@@ -49,12 +39,6 @@ namespace Capgras
             get { return _scenes[_currentSceneIndex]; }
         }
 
-        /// <summary>
-        /// Adds the given scene to the array of scenes.
-        /// </summary>
-        /// <param name="scene">The scene that will be added to the array</param>
-        /// <returns>The index the scene was placed at. Returns -1 if
-        /// the scene is null</returns>
         public static int AddScene(Scene scene)
         {
             //If the scene is null then return before running any other logic
@@ -82,12 +66,6 @@ namespace Capgras
             return index;
         }
 
-        /// <summary>
-        /// Finds the instance of the scene given that inside of the array
-        /// and removes it
-        /// </summary>
-        /// <param name="scene">The scene that will be removed</param>
-        /// <returns>If the scene was successfully removed</returns>
         public static bool RemoveScene(Scene scene)
         {
             //If the scene is null then return before running any other logic
@@ -121,11 +99,6 @@ namespace Capgras
             return sceneRemoved;
         }
 
-
-        /// <summary>
-        /// Sets the current scene in the game to be the scene at the given index
-        /// </summary>
-        /// <param name="index">The index of the scene to switch to</param>
         public static void SetCurrentScene(int index)
         {
             //If the index is not within the range of the the array return
@@ -140,23 +113,11 @@ namespace Capgras
             _currentSceneIndex = index;
         }
 
-
-        /// <summary>
-        /// Returns true while a key is being pressed
-        /// </summary>
-        /// <param name="key">The ascii value of the key to check</param>
-        /// <returns></returns>
         public static bool GetKeyDown(int key)
         {
             return Raylib.IsKeyDown((KeyboardKey)key);
         }
 
-
-        /// <summary>
-        /// Returns true while if key was pressed once
-        /// </summary>
-        /// <param name="key">The ascii value of the key to check</param>
-        /// <returns></returns>
         public static bool GetKeyPressed(int key)
         {
             return Raylib.IsKeyPressed((KeyboardKey)key);
@@ -167,11 +128,15 @@ namespace Capgras
             _scenes = new Scene[0];
         }
 
+        //Code to spice game
+
+        //No code yet
+
         //Called when the game begins. Use this for initialization.
         public void Start()
         {
             //Creates a new window for raylib
-            Raylib.InitWindow(1920, 1080, "Capgras");
+            Raylib.InitWindow(1500, 800, "Capgras");
             Raylib.SetTargetFPS(30);
 
             //Set up console window
@@ -183,10 +148,16 @@ namespace Capgras
             Scene scene2 = new Scene();
 
             //Scene
-            Bedroom bedroom = new Bedroom(50, 50, Color.YELLOW, ' ', ConsoleColor.Red); //I think the math is incorrect so I can't resize it and 
+            Setting bedroom = new Setting(50, 50, Color.YELLOW, ' ', ConsoleColor.Red); //I think the math is incorrect so I can't resize it and 
             bedroom.SetTranslate(new Vector2(25, 25));
-            bedroom.SetRotation(1);
-            bedroom.SetScale(70, 70);
+            bedroom.SetScale(50, 50);
+            bedroom.SetRotation(-3.5f);
+
+            Setting hallway = new Setting(50, 50, Color.YELLOW, ' ', ConsoleColor.Red); //I think the math is incorrect so I can't resize it and 
+            hallway.SetTranslate(new Vector2(25, 25));
+            hallway.SetScale(50, 50);
+
+            //Player
 
             Player player = new Player(0, 0, Color.YELLOW, ' ', ConsoleColor.Red);
             player.Speed = 3;
@@ -194,20 +165,24 @@ namespace Capgras
             player.SetRotation(0);
             player.SetScale(9, 9);
 
-            Door door = new Door(70, 70, Color.GREEN, player, '!', ConsoleColor.Green);
+            //Objects
+
+            Door door = new Door(70, 70, Color.GREEN, player, ' ', ConsoleColor.Green);
             door.SetTranslate(new Vector2(100, 20));
 
             //Scenes
             scene1.AddActor(bedroom);
             //scene1.AddActor(door); //must be where its at
             scene1.AddActor(player);
+            scene2.AddActor(hallway);
+            scene2.AddActor(player);
 
             //Sets the starting scene index and adds the scenes to the scenes array
             int startingSceneIndex = 0;
             startingSceneIndex = AddScene(scene1);
             AddScene(scene2);
 
-            //Sets the current scene to be the starting scene index
+            //This is what will set the first scene to start
             SetCurrentScene(startingSceneIndex);
         }
 

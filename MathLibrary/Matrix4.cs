@@ -163,7 +163,5 @@ namespace MathLibrary
         {
             return new Vector4();
         }
-
-        
     }
 }

@@ -28,7 +28,7 @@ namespace MathLibrary
 
         public float Magnitude
         {
-            get { return (float)Math.Sqrt(X * X + Y * Y); }
+            get { return (float)Math.Sqrt(X * X + Y * Y + Z * Z); }
         }
 
         public Vector3 Normalized

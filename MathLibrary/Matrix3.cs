@@ -85,25 +85,6 @@ namespace MathLibrary
                 0, 0, 1);
         }
 
-        //will be earased after I figure it out!!! \/
-        public static Matrix3 CreateRotationX(float radians)
-        {
-            return new Matrix3(
-                (float)Math.Cos(radians), (float)Math.Sin(radians), 0,
-                -(float)Math.Sin(radians), (float)Math.Cos(radians), 0,
-                0, 0, 1);
-        }
-
-        public static Matrix3 CreateRotationY(float radians)
-        {
-            return new Matrix3(
-                (float)Math.Cos(radians), (float)Math.Sin(radians), 0,
-                -(float)Math.Sin(radians), (float)Math.Cos(radians), 0,
-                0, 0, 1);
-        }
-
-        //will be earased after I figure it out!!! /\
-
         public static Matrix3 CreateTranslation(Vector2 position)
         {
             return new Matrix3

@@ -9,7 +9,7 @@ namespace Capgras
     /// <summary>
     /// An actor that moves based on input given by the user
     /// </summary>
-    class Bedroom : Actor
+    class Setting : Actor
     {
         private float _speed = 1;
         private Sprite _sprite;
@@ -20,16 +20,24 @@ namespace Capgras
             set { _speed = value; }
         }
 
-        public Bedroom(float x, float y, char icon = ' ', ConsoleColor color = ConsoleColor.White)
+        public Setting(float x, float y, char icon = ' ', ConsoleColor color = ConsoleColor.White)
             : base(x, y, icon, color)
         {
 
         }
 
-        public Bedroom(float x, float y, Color rayColor, char icon = ' ', ConsoleColor color = ConsoleColor.White)
+        public Setting(float x, float y, Color rayColor, char icon = ' ', ConsoleColor color = ConsoleColor.White)
             : base(x, y, rayColor, icon, color)
         {
-            _sprite = new Sprite("GAme/bedroom.png");
+            if(Game.CurrentSceneIndex == 0)
+            {
+                _sprite = new Sprite("GAme/bedroom.png");
+            }
+            else if(Game.CurrentSceneIndex == 1)
+            {
+                _sprite = new Sprite("GAme/Hallway.png");
+            }
+
         }
 
         public override void Draw()

@@ -154,18 +154,6 @@ namespace Capgras
             }
         }
 
-        ///<summary>
-        ///this is the base class for all objects that will
-        /// be moverd or interacted with in the game
-        /// 
-        /// Create new matrices to transform the actors matrix. The user should be able
-        /// to translate, rotate, scale the actor.
-        /// </summary>
-
-        /// <param name="x">Position on the x axis</param>
-        /// <param name="y">Position on the y axis</param>
-        /// <param name="icon">The symbol that will appear when drawn</param>
-        /// <param name="color">The color of the symbol that will appear when drawn</param>
         public Actor(float y, float x, char icon = ' ', ConsoleColor color = ConsoleColor.White)
         {
             _rayColor = Color.WHITE;
@@ -176,21 +164,13 @@ namespace Capgras
             _color = color;
         }
 
-
-        /// <param name="x">Position on the x axis</param>
-        /// <param name="y">Position on the y axis</param>
-        /// <param name="rayColor">The color of the symbol that will appear when drawn to raylib</param>
-        /// <param name="icon">The symbol that will appear when drawn</param>
-        /// <param name="color">The color of the symbol that will appear when drawn to the console</param>
         public Actor(float x, float y, Color rayColor, char icon = ' ', ConsoleColor color = ConsoleColor.White)
             : this((char)x, y, icon, color)
         {
             _localTransform = new Matrix3();
-            //maybe \/
             _translation = new Matrix3();
             _scale = new Matrix3();
             _rotation = new Matrix3();
-            //maybe not /\
             _rayColor = rayColor;
         }
 
@@ -235,10 +215,6 @@ namespace Capgras
             return childRemoved;
         }
 
-        /// <summary>
-        /// Updates the actors forward vector to be
-        /// the last direction it moved in
-        /// </summary>
         private void UpdateFacing()
         {
             if (_velocity.Magnitude <= 0)

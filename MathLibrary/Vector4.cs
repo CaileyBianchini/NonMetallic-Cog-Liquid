@@ -37,7 +37,7 @@ namespace MathLibrary
 
         public float Magnitude
         {
-            get { return (float)Math.Sqrt(X * X + Y * Y); }
+            get { return (float)Math.Sqrt(X * X + Y * Y + Z * Z + W * W); }
         }
 
         public Vector4 Normalized
@@ -55,12 +55,11 @@ namespace MathLibrary
             _w = 0;
         }
 
-        public Vector4(float x, float y, float z, float w)
+        public Vector4(float x, float y, float z)
         {
             _x = x;
             _y = y;
             _z = z;
-            _w = w;
         }
 
         /// <summary>
