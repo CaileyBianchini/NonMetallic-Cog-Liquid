@@ -136,7 +136,7 @@ namespace Capgras
         public void Start()
         {
             //Creates a new window for raylib
-            Raylib.InitWindow(1500, 800, "Capgras");
+            Raylib.InitWindow(1920, 1080, "Capgras");
             Raylib.SetTargetFPS(30);
 
             //Set up console window
@@ -149,10 +149,9 @@ namespace Capgras
 
             //Scene
             Setting bedroom = new Setting(50, 50, Color.YELLOW, ' ', ConsoleColor.Red); //I think the math is incorrect so I can't resize it and 
-            bedroom.SetTranslate(new Vector2(25, 25));
-            bedroom.SetScale(50, 50);
-            bedroom.SetRotation(-3.5f);
-
+            bedroom.SetTranslate(new Vector2(30, 17));
+            bedroom.SetScale(60, 30);
+            
             Setting hallway = new Setting(50, 50, Color.YELLOW, ' ', ConsoleColor.Red); //I think the math is incorrect so I can't resize it and 
             hallway.SetTranslate(new Vector2(25, 25));
             hallway.SetScale(50, 50);
@@ -161,19 +160,26 @@ namespace Capgras
 
             Player player = new Player(0, 0, Color.YELLOW, ' ', ConsoleColor.Red);
             player.Speed = 3;
-            player.SetTranslate(new Vector2(10, 10));
-            player.SetRotation(0);
-            player.SetScale(9, 9);
+            player.SetTranslate(new Vector2(10, 24));
+            player.SetScale(9, 7);
+
+            Arm rightArm = new Arm(0, 0, Color.YELLOW, ' ', ConsoleColor.Red);
+            player.AddChild(rightArm);
+            rightArm.SetScale(0.75f, -0.25f);
 
             //Objects
 
             Door door = new Door(70, 70, Color.GREEN, player, ' ', ConsoleColor.Green);
-            door.SetTranslate(new Vector2(100, 20));
+            door.SetTranslate(new Vector2(25, 17));
+            door.SetScale(5, 10);
 
             //Scenes
             scene1.AddActor(bedroom);
-            //scene1.AddActor(door); //must be where its at
+            scene1.AddActor(door); //must be where its at
+
             scene1.AddActor(player);
+            scene1.AddActor(rightArm);
+
             scene2.AddActor(hallway);
             scene2.AddActor(player);
 

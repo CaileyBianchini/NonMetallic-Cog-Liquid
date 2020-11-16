@@ -88,7 +88,7 @@ namespace Capgras
             if (perpDot != 0)
                 angle *= -perpDot / Math.Abs(perpDot);
 
-            Rotate(angle);
+            //Rotate(angle); //<-------------------------------This effects the direction
         }
 
         public void SetScale(float x, float y)
@@ -126,7 +126,6 @@ namespace Capgras
                 return new Vector2(_globalTransform.m13, _globalTransform.m23);
             }
         }
-
 
         public Vector2 LocalPosition
         {
