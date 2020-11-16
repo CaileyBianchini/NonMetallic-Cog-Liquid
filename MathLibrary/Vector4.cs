@@ -55,11 +55,12 @@ namespace MathLibrary
             _w = 0;
         }
 
-        public Vector4(float x, float y, float z)
+        public Vector4(float x, float y, float z, float w)
         {
             _x = x;
             _y = y;
             _z = z;
+            _w = w;
         }
 
         /// <summary>
