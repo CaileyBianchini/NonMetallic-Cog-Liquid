@@ -147,9 +147,5 @@ namespace MathLibrary
                 );
         }
 
-        public static Vector4 operator *(Matrix4 lhs, Vector4 rhs)
-        {
-            return new Vector4();
-        }
     }
 }
