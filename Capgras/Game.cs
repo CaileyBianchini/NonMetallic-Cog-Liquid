@@ -160,6 +160,10 @@ namespace Capgras
             fog.SetTranslate(new Vector2(30, 17));
             fog.SetScale(60, 30);
 
+            Tutorial wasd = new Tutorial(50, 50, Color.YELLOW, ' ', ConsoleColor.Red); //I think the math is incorrect so I can't resize it and 
+            wasd.SetTranslate(new Vector2(25, 25));
+            wasd.SetScale(50, 50);
+
             //Player
 
             Player player = new Player(0, 0, Color.YELLOW, ' ', ConsoleColor.Red);
@@ -175,24 +179,35 @@ namespace Capgras
             Leg rightLeg = new Leg(0, 0, Color.YELLOW, ' ', ConsoleColor.Red);
             player.AddChild(rightLeg);
             rightLeg.SetTranslate(0, 0);
-            rightLeg.SetScale(.75f, 1f);
+            rightLeg.SetScale(.45f, 1f);
+
+            Leg leftLeg = new Leg(0, 0, Color.YELLOW, ' ', ConsoleColor.Red);
+            player.AddChild(leftLeg);
+            leftLeg.SetTranslate(-.06f, 0);
+            leftLeg.SetScale(.40f, 0.95f);
 
             //Objects
 
             Door door = new Door(20, 20, Color.GREEN, player, ' ', ConsoleColor.Green);
-            door.SetTranslate(new Vector2(50, 23)); // Y should always be at 23!
+            door.SetTranslate(new Vector2(50, 21.5f)); // Y should always be at 21.5f!
             door.SetScale(8, 15);
 
-            //Scenes
+            // SCENE 1
+            //Setting adding
             scene1.AddActor(bedroom);
             scene1.AddActor(door); //must be where its at
 
+            //player adding
+            scene1.AddActor(leftLeg);
             scene1.AddActor(player);
             scene1.AddActor(rightLeg);           
             scene1.AddActor(rightArm);
 
             scene1.AddActor(fog);
-                
+            scene1.AddActor(wasd);
+            
+            //SCENE 2
+            //Setting adding
             scene2.AddActor(hallway);
             scene2.AddActor(player);
 
