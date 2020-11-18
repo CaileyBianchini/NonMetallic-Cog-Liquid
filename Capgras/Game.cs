@@ -151,9 +151,14 @@ namespace Capgras
             bedroom.SetTranslate(new Vector2(30, 17));
             bedroom.SetScale(60, 30);
             
-            Setting hallway = new Setting(50, 50, Color.YELLOW, ' ', ConsoleColor.Red); //I think the math is incorrect so I can't resize it and 
-            hallway.SetTranslate(new Vector2(25, 25));
-            hallway.SetScale(50, 50);
+            //this will be done termperarily <sorry for misspelling 
+            //Setting hallway = new Setting(50, 50, Color.YELLOW, ' ', ConsoleColor.Red); //I think the math is incorrect so I can't resize it and 
+            //hallway.SetTranslate(new Vector2(25, 25));
+            //hallway.SetScale(50, 50);
+
+            Hallway hallway = new Hallway(50, 50, Color.YELLOW, ' ', ConsoleColor.Red); //I think the math is incorrect so I can't resize it and 
+            hallway.SetTranslate(new Vector2(30, 17));
+            hallway.SetScale(60, 30);
 
             Fog fog = new Fog(50, 50, Color.YELLOW, ' ', ConsoleColor.Red); //I think the math is incorrect so I can't resize it and 
             fog.SetTranslate(new Vector2(30, 17));

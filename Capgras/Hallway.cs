@@ -9,28 +9,24 @@ namespace Capgras
     /// <summary>
     /// An actor that moves based on input given by the user
     /// </summary>
-    class Setting : Actor
+    class Hallway : Actor
     {
+        //THIS IS TEMPERARY!!! 
         private Sprite _sprite;
 
 
-        public Setting(float x, float y, char icon = ' ', ConsoleColor color = ConsoleColor.White)
+        public Hallway(float x, float y, char icon = ' ', ConsoleColor color = ConsoleColor.White)
             : base(x, y, icon, color)
         {
 
         }
 
-        public Setting(float x, float y, Color rayColor, char icon = ' ', ConsoleColor color = ConsoleColor.White)
+        public Hallway(float x, float y, Color rayColor, char icon = ' ', ConsoleColor color = ConsoleColor.White)
             : base(x, y, rayColor, icon, color)
         {
-            if(Game.CurrentSceneIndex == 0)
-            {
-                _sprite = new Sprite("GAme/bedroom.png");
-            }
-            else if(Game.CurrentSceneIndex == 1)
-            {
-                _sprite = new Sprite("GAme/Hallway.png");
-            }
+            
+            _sprite = new Sprite("GAme/Hallway.png");
+            
 
         }
 
