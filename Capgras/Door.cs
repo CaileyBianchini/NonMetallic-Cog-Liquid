@@ -42,8 +42,8 @@ namespace Capgras
         public override void Update(float deltaTime)
         {
             //If the player is in range of the door and selects W, it will move to next scene...hopefully
-            //if (CheckPlayerDistance() && )
-            //    Game.CurrentSceneIndex + 1;
+            if (CheckPlayerDistance() && Game.GetKeyDown((int)KeyboardKey.KEY_W) == true)
+                //Game.CurrentSceneIndex += 1;
 
             base.Update(deltaTime);
         }

@@ -38,8 +38,11 @@
     <None Update="GAme\fog.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="GAme\full.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="GAme\hallway full.jpg">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="GAme\Hallway.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
