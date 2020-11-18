@@ -163,18 +163,19 @@ namespace Capgras
             //Player
 
             Player player = new Player(0, 0, Color.YELLOW, ' ', ConsoleColor.Red);
-            player.Speed = 3;
-            player.SetTranslate(new Vector2(10, 24));
-            player.SetScale(7, 7);
+            player.Speed = 5;
+            player.SetTranslate(new Vector2(10, 26));
+            player.SetScale(6, 9);
 
             Arm rightArm = new Arm(0, 0, Color.YELLOW, ' ', ConsoleColor.Red);
             player.AddChild(rightArm);
-            rightArm.SetScale(0.75f, -0.25f);
+            rightArm.SetTranslate(new Vector2(0, 0));
+            rightArm.SetScale(0.75f, 1f);
 
             Leg rightLeg = new Leg(0, 0, Color.YELLOW, ' ', ConsoleColor.Red);
             player.AddChild(rightLeg);
             rightLeg.SetTranslate(0, 0);
-            rightLeg.SetScale(.55f, 0.75f);
+            rightLeg.SetScale(.75f, 1f);
 
             //Objects
 
@@ -187,8 +188,8 @@ namespace Capgras
             scene1.AddActor(door); //must be where its at
 
             scene1.AddActor(player);
+            scene1.AddActor(rightLeg);           
             scene1.AddActor(rightArm);
-            scene1.AddActor(rightLeg);
 
             scene1.AddActor(fog);
                 

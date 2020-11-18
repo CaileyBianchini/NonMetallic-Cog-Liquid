@@ -46,7 +46,7 @@ namespace Capgras
                 SetRotation(i);
                 localRotate(i);
 
-                i = i + 0.2f;
+                i = i - 0.2f;
                 i *= -1;
             }
             if ((Game.GetKeyDown((int)KeyboardKey.KEY_D)) == true)
@@ -55,7 +55,7 @@ namespace Capgras
                 SetRotation(i);
                 localRotate(i);
 
-                i = i + 0.2f;
+                i = i - 0.2f;
                 i /= -1;
             }
 
