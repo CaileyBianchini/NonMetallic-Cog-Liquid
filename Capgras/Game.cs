@@ -128,10 +128,7 @@ namespace Capgras
             _scenes = new Scene[0];
         }
 
-        //Code to spice game
-
-        //No code yet
-
+        
         //Called when the game begins. Use this for initialization.
         public void Start()
         {
@@ -146,6 +143,8 @@ namespace Capgras
             //Create a new scene for our actors to exist in
             Scene scene1 = new Scene();
             Scene scene2 = new Scene();
+
+
 
             //Scene
             Setting bedroom = new Setting(50, 50, Color.YELLOW, ' ', ConsoleColor.Red); //I think the math is incorrect so I can't resize it and 
@@ -209,7 +208,12 @@ namespace Capgras
             //SCENE 2
             //Setting adding
             scene2.AddActor(hallway);
+
+            //player adding
+            scene2.AddActor(leftLeg);
             scene2.AddActor(player);
+            scene2.AddActor(rightLeg);
+            scene2.AddActor(rightArm);
 
             //Sets the starting scene index and adds the scenes to the scenes array
             int startingSceneIndex = 0;
@@ -219,7 +223,6 @@ namespace Capgras
             //This is what will set the first scene to start
             SetCurrentScene(startingSceneIndex);
         }
-
 
 
         /// <summary>
