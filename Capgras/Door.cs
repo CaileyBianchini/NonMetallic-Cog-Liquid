@@ -33,6 +33,12 @@ namespace Capgras
             return distance <= 1;
         }
 
+        public override void Draw()
+        {
+            _sprite.Draw(_globalTransform);
+            base.Draw();
+        }
+
         public override void Update(float deltaTime)
         {
             //If the player is in range of the door and selects W, it will move to next scene...hopefully
