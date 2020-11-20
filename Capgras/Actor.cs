@@ -73,22 +73,26 @@ namespace Capgras
 
         public void LookAt(Vector2 position)
         {
-
+            //Find the direction that the actor should look in
             Vector2 direction = (position - LocalPosition).Normalized;
 
+            //Use the dotproduct to find the angle the actor needs to rotate
             float dotProd = Vector2.DotProduct(Forward, direction);
             if (Math.Abs(dotProd) > 1)
                 return;
             float angle = (float)Math.Acos(dotProd);
 
+            //Find a perpindicular vector to the direction
             Vector2 perp = new Vector2(direction.Y, -direction.X);
 
+            //Find the dot product of the perpindicular vector and the current forward
             float perpDot = Vector2.DotProduct(perp, Forward);
 
+            //If the result isn't 0, use it to change the sign of the angle to be either positive or negative
             if (perpDot != 0)
                 angle *= -perpDot / Math.Abs(perpDot);
 
-            //Rotate(angle); //<-------------------------------This effects the direction
+            Rotate(angle);
         }
 
         public void SetScale(float x, float y)
@@ -117,6 +121,11 @@ namespace Capgras
             {
                 return new Vector2(_globalTransform.m11, _globalTransform.m21);
             }
+            set
+            {
+                Vector2 lookPosition = LocalPosition + value.Normalized;
+                LookAt(lookPosition);
+            }
         }
 
         public Vector2 WorldPosition
@@ -135,8 +144,8 @@ namespace Capgras
                 _translation.m13 = value.X;
                 _translation.m23 = value.Y;
                 //gotta fix this somehow
-                Vector2 lookPosition = LocalPosition + value.Normalized;
-                LookAt(lookPosition);
+                //Vector2 lookPosition = LocalPosition + value.Normalized;
+                //LookAt(lookPosition);
 
             }
         }
@@ -218,7 +227,7 @@ namespace Capgras
         {
             if (_velocity.Magnitude <= 0)
                 return;
-
+            Forward = Velocity.Normalized;
         }
 
         public virtual void Start()
