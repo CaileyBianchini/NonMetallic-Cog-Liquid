@@ -1,7 +1,7 @@
 | Cailey Marie Bianchini|
 | :---          	|
 | Capgras |
-|  |
+| Math for Games |
 | Programming class 2022 |
 |December 4, 2020|
 # Capgras

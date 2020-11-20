@@ -20,7 +20,7 @@ namespace Capgras
     {
         protected char _icon = ' ';
 
-        protected Vector2 _velocity;
+        protected Vector2 _velocity = new Vector2();
         protected Matrix3 _globalTransform = new Matrix3();
         protected Matrix3 _localTransform = new Matrix3();
         private Matrix3 _translation = new Matrix3();
