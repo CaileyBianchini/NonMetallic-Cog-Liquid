@@ -45,8 +45,10 @@
 
 **File**: Game.cs
 
-This is 
-![This is the first tutorial Image that teaches what buttons to use](GAme/tutorial 1.png)
+This is one of the tutorial images that teaches player the buttons
+![images](GAme/tutorial 1.png)
+
+![image](GAme/menu.PNG)
 
 **Attributes**
 
