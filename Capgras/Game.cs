@@ -34,6 +34,16 @@ namespace Capgras
             return _scenes[index];
         }
 
+        /// <summary>
+        /// Returns the scene that is at the index of the 
+        /// current scene index
+        /// </summary>
+        /// <returns></returns>
+        public static Scene GetCurrentScene()
+        {
+            return _scenes[_currentSceneIndex];
+        }
+
         public static Scene CurrentScene
         {
             get { return _scenes[_currentSceneIndex]; }
@@ -170,7 +180,7 @@ namespace Capgras
 
             //Player
 
-            Player player = new Player(0, 0, Color.YELLOW, ' ', ConsoleColor.Red);
+            Player player = new Player(10, 26, Color.YELLOW, ' ', ConsoleColor.Red);
             player.Speed = 5;
             player.SetTranslate(new Vector2(10, 26));
             player.SetScale(6, 9);
@@ -182,19 +192,23 @@ namespace Capgras
 
             Leg rightLeg = new Leg(0, 0, Color.YELLOW, ' ', ConsoleColor.Red);
             player.AddChild(rightLeg);
-            rightLeg.SetTranslate(0, 0);
+            rightLeg.SetTranslate(new Vector2(0, 0));
             rightLeg.SetScale(.45f, 1f);
 
             Leg leftLeg = new Leg(0, 0, Color.YELLOW, ' ', ConsoleColor.Red);
             player.AddChild(leftLeg);
-            leftLeg.SetTranslate(-.06f, 0);
+            leftLeg.SetTranslate(new Vector2(-.06f, 0));
             leftLeg.SetScale(.40f, 0.95f);
 
             //Objects
 
             Door door = new Door(20, 20, Color.GREEN, player, ' ', ConsoleColor.Green);
-            door.SetTranslate(new Vector2(50, 21.5f)); // Y should always be at 21.5f!
+            door.SetTranslate(new Vector2(50, 22f)); // Y should always be at 22f!
             door.SetScale(8, 15);
+
+            Wardrobe wardrobe = new Wardrobe(20, 20, Color.GREEN, player, ' ', ConsoleColor.Green);
+            wardrobe.SetTranslate(new Vector2(30, 20f));
+            wardrobe.SetScale(10, 20);
 
             // SCENE 1
             //Setting adding
@@ -209,10 +223,12 @@ namespace Capgras
 
             scene1.AddActor(fog);
             scene1.AddActor(wasd);
-            
+
             //SCENE 2
             //Setting adding
             scene2.AddActor(hallway);
+            scene2.AddActor(door);
+            scene2.AddActor(wardrobe);
 
             //player adding
             scene2.AddActor(leftLeg);
@@ -236,8 +252,10 @@ namespace Capgras
         /// <param name="deltaTime">The time between each frame</param>
         public void Update(float deltaTime)
         {
-            if (_scenes[_currentSceneIndex].Started)
-                _scenes[_currentSceneIndex].Start();
+            if (!_scenes[_currentSceneIndex].Started)
+            {
+                    _scenes[_currentSceneIndex].Start();
+            }
 
             _scenes[_currentSceneIndex].Update(deltaTime);
         }
@@ -266,9 +284,9 @@ namespace Capgras
         //Handles all of the main game logic including the main game loop.
         public void Run()
         {
-            // ! SPACESHIPS ! //
             //Call start for all objects in game
             Start();
+
             //Loops the game until either the game is set to be over or the window closes
             while (!_gameOver && !Raylib.WindowShouldClose())
             {
@@ -283,6 +301,7 @@ namespace Capgras
                     Console.ReadKey(true);
             }
 
+            //this will be applied when _gameover = true ou other conditions are met
             End();
         }
     }

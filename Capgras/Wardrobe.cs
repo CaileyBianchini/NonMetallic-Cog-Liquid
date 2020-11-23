@@ -24,13 +24,13 @@ namespace Capgras
             : base(x, y, rayColor, icon, color)
         {
             _player = player;
-            _sprite = new Sprite("GAme/closet.png");
+            _sprite = new Sprite("GAme/coset.png");
         }
 
         private bool CheckPlayerDistance()
         {
             float distance = (_player.LocalPosition - LocalPosition).Magnitude;
-            return distance <= 5;
+            return distance <= 8;
         }
 
         public override void Draw()
@@ -45,10 +45,15 @@ namespace Capgras
             if (CheckPlayerDistance() && Game.GetKeyDown((int)KeyboardKey.KEY_E) == true)
             {
                 _sprite = new Sprite("GAme/closetclosed.png");
+                
             }
-            if (CheckPlayerDistance() && Game.GetKeyDown((int)KeyboardKey.KEY_Q) == true)
+            else if (CheckPlayerDistance() && Game.GetKeyDown((int)KeyboardKey.KEY_Q) == true)
             {
-                _sprite = new Sprite("GAme/closet.png");
+                _sprite = new Sprite("GAme/coset.png");
+            }
+            else
+            {
+                _sprite = new Sprite("GAme/coset.png");
             }
 
             base.Update(deltaTime);

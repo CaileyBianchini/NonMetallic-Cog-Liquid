@@ -42,21 +42,13 @@ namespace Capgras
             _translation = Matrix3.CreateTranslation(position);
         }
 
-        public void SetTranslate(float x, float y)
+        //rotation = the matrix3 create roatation using radians
+        public void SetRotation(float radians)
         {
-            _translation.m13 = x;
-            _translation.m23 = y;
+            _rotation = Matrix3.CreateRotation(radians);
         }
 
-        //rotation
-        public void SetRotation(float radions)
-        {
-            _rotation.m11 = (float)Math.Cos(radions);
-            _rotation.m21 = -(float)Math.Sin(radions);
-            _rotation.m12 = (float)Math.Sin(radions);
-            _rotation.m22 = (float)Math.Cos(radions);
-        }
-
+        //rotation is multiplied using matrix3 create rotation using radians
         public void Rotate(float radians)
         {
             _rotation *= Matrix3.CreateRotation(radians);
@@ -104,6 +96,11 @@ namespace Capgras
         {
             //combine translation, rotation and scale
             _localTransform = (_translation * _rotation * _scale);
+
+            if (_parent != null)
+                _globalTransform = _parent._globalTransform * _localTransform;
+            else
+                _globalTransform = Game.GetCurrentScene().World * _localTransform;
         }
 
         private void UpdateGlobalTransform()
@@ -112,7 +109,7 @@ namespace Capgras
             if (_parent != null)
                 _globalTransform = _parent._globalTransform * _localTransform;
             else
-                _globalTransform = Game.CurrentScene.World * _localTransform;
+                _globalTransform = Game.GetCurrentScene().World * _localTransform;
         }
 
         public Vector2 Forward
@@ -143,10 +140,6 @@ namespace Capgras
             {
                 _translation.m13 = value.X;
                 _translation.m23 = value.Y;
-                //gotta fix this somehow
-                //Vector2 lookPosition = LocalPosition + value.Normalized;
-                //LookAt(lookPosition);
-
             }
         }
 
@@ -227,7 +220,11 @@ namespace Capgras
         {
             if (_velocity.Magnitude <= 0)
                 return;
-            Forward = Velocity.Normalized;
+            else
+            {
+                Forward = Velocity.Normalized;
+                return;
+            }
         }
 
         public virtual void Start()

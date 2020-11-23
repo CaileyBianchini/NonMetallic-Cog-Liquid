@@ -66,6 +66,23 @@ namespace Capgras
                 i *= -1;
             }
 
+            if (Game.GetKeyDown((int)KeyboardKey.KEY_A) == true)
+            {
+                _sprite = new Sprite("GAme/body hand A.png");
+            }
+            else if (Game.GetKeyDown((int)KeyboardKey.KEY_E) == true)
+            {
+                _sprite = new Sprite("");
+            }
+            else if (Game.GetKeyDown((int)KeyboardKey.KEY_W) == true)
+            {
+                _sprite = new Sprite("");
+            }
+            else
+            {
+                _sprite = new Sprite("GAme/body hand.png");
+            }
+
             base.Update(deltaTime);
         }
     }

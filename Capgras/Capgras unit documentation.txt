@@ -28,9 +28,11 @@
 
     1. 
 
+### III. Graphics
 
 
-### Object Information
+
+#### Object Information
 
 **File**: Program.cs
 
@@ -42,6 +44,8 @@
 
 
 **File**: Game.cs
+
+![This is the first tutorial Image that teaches what buttons to use](GAme/tutorial 1.png)
 
 **Attributes**
 
@@ -63,9 +67,9 @@
          Name: End()
              Description: Anything that is put in this will always be played towards the end of the program before closing. This time around it will have story ends.
              Type: public void
-	Name: Prologue()
+	    Name: Prologue()
              Description: This will hold the start of the story and introducing characters and gets players name
              Type: public void
-	Name: MainStory()
+	    Name: MainStory()
              Description: This will hold the main game, this will hold what effects the ending.
              Type: public void

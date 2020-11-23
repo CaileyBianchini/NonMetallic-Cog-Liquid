@@ -56,6 +56,22 @@ namespace Capgras
             //JUMPING
             int yDirection = -Convert.ToInt32(Game.GetKeyDown((int)KeyboardKey.KEY_SPACE)) + Convert.ToInt32(Game.GetKeyDown((int)KeyboardKey.KEY_SPACE));
 
+            if (Game.GetKeyDown((int)KeyboardKey.KEY_A) == true)
+            {
+                _sprite = new Sprite("GAme/A.png");
+            }
+            else if (Game.GetKeyDown((int)KeyboardKey.KEY_E) == true)
+            {
+                _sprite = new Sprite("");
+            }
+            else if(Game.GetKeyDown((int)KeyboardKey.KEY_W) == true)
+            {
+                _sprite = new Sprite("");
+            }
+            else
+            {
+                _sprite = new Sprite("GAme/D.png");
+            }
 
             //Set the actors current velocity to be the a vector with the direction found scaled by the speed
             Velocity = new Vector2(xDirection, yDirection);

@@ -11,9 +11,10 @@
 ## Getting Started
 | Buttons |
 | :---          	|
-|E - To use doors and wardrobes |
-|A - To go left |
-|D - To go right |
+|**E** - To use doors and wardrobes |
+|**A** - To go left |
+|**D** - To go right |
+|**W** - to jump - ***will be added***
 
 
 
