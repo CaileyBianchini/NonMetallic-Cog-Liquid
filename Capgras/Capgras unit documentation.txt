@@ -46,7 +46,7 @@
 **File**: Game.cs
 
 This is one of the tutorial images that teaches player the buttons
-![images](GAme/tutorial 1.png)
+![Capgras](GAme/tutorial 1.png)
 
 ![image](GAme/menu.PNG)
 
