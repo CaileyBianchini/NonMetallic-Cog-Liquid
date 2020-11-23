@@ -54,7 +54,7 @@ namespace Capgras
                 + Convert.ToInt32(Game.GetKeyDown((int)KeyboardKey.KEY_D));
 
             //JUMPING
-            int yDirection = -Convert.ToInt32(Game.GetKeyDown((int)KeyboardKey.KEY_SPACE);
+            int yDirection = -Convert.ToInt32(Game.GetKeyDown((int)KeyboardKey.KEY_SPACE));
 
             if (Game.GetKeyDown((int)KeyboardKey.KEY_A) == true)
             {
