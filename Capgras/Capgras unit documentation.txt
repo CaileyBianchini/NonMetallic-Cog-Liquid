@@ -53,12 +53,6 @@ This is one of the tutorial images that teaches player the buttons
 
 **Attributes**
 
-         Name: Continue()
-             Description: Allows for a simpler way to clear console while letting player time
-             Type: public void
-         Name: GetInput()
-             Description: Allows for the player to input two choices and print why they need to choose options
-             Type: public void
          Name: Run()
              Description: This will allow the program to runwhat is inside of it, and only that
              Type: public void
@@ -70,10 +64,4 @@ This is one of the tutorial images that teaches player the buttons
              Type: public void
          Name: End()
              Description: Anything that is put in this will always be played towards the end of the program before closing. This time around it will have story ends.
-             Type: public void
-	    Name: Prologue()
-             Description: This will hold the start of the story and introducing characters and gets players name
-             Type: public void
-	    Name: MainStory()
-             Description: This will hold the main game, this will hold what effects the ending.
              Type: public void

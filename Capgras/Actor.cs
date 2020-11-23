@@ -21,6 +21,7 @@ namespace Capgras
         protected char _icon = ' ';
 
         protected Vector2 _velocity = new Vector2();
+        protected Vector2 _acceleration = new Vector2();
         protected Matrix3 _globalTransform = new Matrix3();
         protected Matrix3 _localTransform = new Matrix3();
         private Matrix3 _translation = new Matrix3();
@@ -33,6 +34,7 @@ namespace Capgras
         protected Actor[] _children = new Actor[0];
         protected float _rotationAngle; //not needed for lookout
         private float _collisionRadius;
+        private float _maxSpeed;
 
         public bool Started { get; private set; }
 
@@ -155,6 +157,30 @@ namespace Capgras
             }
         }
 
+        public Vector2 Acceleration
+        {
+            get
+            {
+                return _acceleration;
+            }
+            set
+            {
+                _acceleration = value;
+            }
+        }
+
+        public float MaxSpeed
+        {
+            get
+            {
+                return _maxSpeed;
+            }
+            set
+            {
+                _maxSpeed = value;
+            }
+        }
+
         public Actor(float y, float x, char icon = ' ', ConsoleColor color = ConsoleColor.White)
         {
             _rayColor = Color.WHITE;
@@ -239,6 +265,12 @@ namespace Capgras
             UpdateFacing();
 
             UpdateTransform();
+
+            //When its uncommented out, it doesn't allow the person to move
+            Velocity += Acceleration;
+            if (Velocity.Magnitude > MaxSpeed)
+                Velocity = Velocity.Normalized * MaxSpeed;
+
 
             //Increase position by the current velocity
             LocalPosition += _velocity * deltaTime;

@@ -52,9 +52,9 @@ namespace Capgras
             //Gets the player's input to determine which direction the actor will move in on each axis 
             int xDirection = -Convert.ToInt32(Game.GetKeyDown((int)KeyboardKey.KEY_A))
                 + Convert.ToInt32(Game.GetKeyDown((int)KeyboardKey.KEY_D));
-            
+
             //JUMPING
-            int yDirection = -Convert.ToInt32(Game.GetKeyDown((int)KeyboardKey.KEY_SPACE)) + Convert.ToInt32(Game.GetKeyDown((int)KeyboardKey.KEY_SPACE));
+            int yDirection = -Convert.ToInt32(Game.GetKeyDown((int)KeyboardKey.KEY_SPACE);
 
             if (Game.GetKeyDown((int)KeyboardKey.KEY_A) == true)
             {
@@ -74,7 +74,8 @@ namespace Capgras
             }
 
             //Set the actors current velocity to be the a vector with the direction found scaled by the speed
-            Velocity = new Vector2(xDirection, yDirection);
+            Acceleration = new Vector2(xDirection, yDirection); //doesn't have real meaning yet
+            //Velocity = new Vector2(xDirection, yDirection);
             Velocity = Velocity.Normalized * Speed;
 
             base.Update(deltaTime);

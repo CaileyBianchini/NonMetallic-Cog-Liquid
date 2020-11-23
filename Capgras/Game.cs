@@ -211,8 +211,8 @@ namespace Capgras
             door.SetScale(8, 15);
 
             Wardrobe wardrobe = new Wardrobe(20, 20, Color.GREEN, player, ' ', ConsoleColor.Green);
-            wardrobe.SetTranslate(new Vector2(30, 20f));
-            wardrobe.SetScale(10, 20);
+            wardrobe.SetTranslate(new Vector2(30, 19f));
+            wardrobe.SetScale(12, 22);
 
             // SCENE 1
             //Setting adding
