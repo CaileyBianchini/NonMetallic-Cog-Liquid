@@ -166,17 +166,21 @@ namespace Capgras
             //hallway.SetTranslate(new Vector2(25, 25));
             //hallway.SetScale(50, 50);
 
-            Hallway hallway = new Hallway(50, 50, Color.YELLOW, ' ', ConsoleColor.Red); //I think the math is incorrect so I can't resize it and 
+            Hallway hallway = new Hallway(50, 50, Color.YELLOW, ' ', ConsoleColor.Red); 
             hallway.SetTranslate(new Vector2(30, 17));
             hallway.SetScale(60, 30);
 
-            Fog fog = new Fog(50, 50, Color.YELLOW, ' ', ConsoleColor.Red); //I think the math is incorrect so I can't resize it and 
+            Fog fog = new Fog(50, 50, Color.YELLOW, ' ', ConsoleColor.Red); 
             fog.SetTranslate(new Vector2(30, 17));
             fog.SetScale(60, 30);
 
-            Tutorial wasd = new Tutorial(50, 50, Color.YELLOW, ' ', ConsoleColor.Red); //I think the math is incorrect so I can't resize it and 
+            Tutorial wasd = new Tutorial(50, 50, Color.YELLOW, ' ', ConsoleColor.Red); 
             wasd.SetTranslate(new Vector2(25, 25));
             wasd.SetScale(50, 50);
+
+            Tutorial2 SPACE = new Tutorial2(50, 50, Color.YELLOW, ' ', ConsoleColor.Red); 
+            SPACE.SetTranslate(new Vector2(25, 25));
+            SPACE.SetScale(50, 50);
 
             //Player
 
@@ -229,6 +233,8 @@ namespace Capgras
             scene2.AddActor(hallway);
             scene2.AddActor(door);
             scene2.AddActor(wardrobe);
+            scene2.AddActor(SPACE);
+
 
             //player adding
             scene2.AddActor(leftLeg);
@@ -236,6 +242,8 @@ namespace Capgras
             scene2.AddActor(rightLeg);
             scene2.AddActor(rightArm);
 
+            scene2.AddActor(fog);
+            
             //Sets the starting scene index and adds the scenes to the scenes array
             int startingSceneIndex = 0;
             startingSceneIndex = AddScene(scene1);

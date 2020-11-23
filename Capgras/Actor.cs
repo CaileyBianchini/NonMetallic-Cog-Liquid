@@ -254,13 +254,13 @@ namespace Capgras
             //Draws the actor and a line indicating it facing to the raylib window.
             //Scaled to match console movement
             Raylib.DrawText(_icon.ToString(), (int)WorldPosition.X * 32, (int)(WorldPosition.Y * 32), 32, _rayColor);
-            Raylib.DrawLine(
-                (int)(WorldPosition.X * 32),
-                (int)(WorldPosition.Y * 32),
-                (int)((WorldPosition.X + Forward.X) * 32),
-                (int)((WorldPosition.Y + Forward.Y) * 32),
-                Color.WHITE
-            );
+            //Raylib.DrawLine(
+            //    (int)(WorldPosition.X * 32),
+            //    (int)(WorldPosition.Y * 32),
+            //    (int)((WorldPosition.X + Forward.X) * 32),
+            //    (int)((WorldPosition.Y + Forward.Y) * 32),                        //This comment draws the white line that was in it
+            //    Color.WHITE
+            //);
 
             //Changes the color of the console text to be this actors color
             Console.ForegroundColor = _color;

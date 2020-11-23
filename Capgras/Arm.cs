@@ -47,6 +47,7 @@ namespace Capgras
         float i = 0;
         public override void Update(float deltaTime)
         {
+            //!this will effect the rotaton of the sprite!
             if((Game.GetKeyDown((int)KeyboardKey.KEY_A)) == true)
             {
                 Rotate(i);
@@ -66,6 +67,7 @@ namespace Capgras
                 i *= -1;
             }
 
+            //!this will change what the icon looks like!
             if (Game.GetKeyDown((int)KeyboardKey.KEY_A) == true)
             {
                 _sprite = new Sprite("GAme/body hand A.png");
@@ -74,7 +76,7 @@ namespace Capgras
             {
                 _sprite = new Sprite("");
             }
-            else if (Game.GetKeyDown((int)KeyboardKey.KEY_W) == true)
+            else if (Game.GetKeyDown((int)KeyboardKey.KEY_SPACE) == true)
             {
                 _sprite = new Sprite("");
             }

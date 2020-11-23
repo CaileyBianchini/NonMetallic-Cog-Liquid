@@ -32,7 +32,7 @@ namespace Capgras
             }
             else if (Game.CurrentSceneIndex == 1)
             {
-                
+                _sprite = new Sprite("GAme/tutorial 2.png");
             }
 
         }

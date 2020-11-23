@@ -17,12 +17,13 @@
     
 
 2. Input Information
-- Get Input Numbers - Player will be asked to select things out of a list, can be two choices, some will have 6 choices.
-- Name? - You will be asked to type in the name you want for the character you will be plaing.
+- the player will be able to use keys A, D, E, and [SPACE]
 
 1.  Output Information
-- When you enter your choice, that choice will be the only one played and will effect how the game is played, this is in both versions that you can play.
-- When you input your name, anywhere that requires to print players name, it will print the name that you inputed.
+- A - this always the player to move left
+- D - this always the player to move right
+- E - this always the player to use the door and wardrobe
+- [SPACE] - will make the player "Jump"
  
 ## II. Errors
 

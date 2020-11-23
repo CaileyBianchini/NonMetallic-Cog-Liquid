@@ -64,7 +64,7 @@ namespace Capgras
             {
                 _sprite = new Sprite("");
             }
-            else if(Game.GetKeyDown((int)KeyboardKey.KEY_W) == true)
+            else if(Game.GetKeyDown((int)KeyboardKey.KEY_SPACE) == true)
             {
                 _sprite = new Sprite("");
             }
