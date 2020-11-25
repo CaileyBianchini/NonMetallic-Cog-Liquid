@@ -77,6 +77,10 @@ namespace Capgras
             {
                 _sprite = new Sprite("GAme/jump A.png");
             }
+            else if (Game.GetKeyDown((int)KeyboardKey.KEY_E) == true) // erases
+            {
+                _sprite = new Sprite("");
+            }
             else //will make this facing player
             {
                 _sprite = new Sprite("GAme/facing.png");

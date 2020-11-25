@@ -88,6 +88,10 @@ namespace Capgras
             {
                 _sprite = new Sprite("");
             }
+            else if (Game.GetKeyDown((int)KeyboardKey.KEY_E) == true) // erases
+            {
+                _sprite = new Sprite("");
+            }
             else //erases arm
             {
                 _sprite = new Sprite("");

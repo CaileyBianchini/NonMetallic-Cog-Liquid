@@ -30,7 +30,7 @@ namespace Capgras
         private bool CheckPlayerDistance()
         {
             float distance = (_player.LocalPosition - LocalPosition).Magnitude;
-            return distance <= 5;
+            return distance <= 8;
         }
 
         public override void Draw()
@@ -41,9 +41,15 @@ namespace Capgras
 
         public override void Update(float deltaTime)
         {
-            //If the player is in range of the door and selects W, it will move to next scene...hopefully
+            //If the player is in range of the door and selects E, it will move to next scene...hopefully
             if (CheckPlayerDistance() && Game.GetKeyDown((int)KeyboardKey.KEY_E) == true)
                 Game.SetCurrentScene(Game.CurrentSceneIndex + 1);
+
+            ////although commented out I plan that it will allow player to return to previous scene
+            //if (Game.CurrentSceneIndex == 2 && CheckPlayerDistance() && Game.GetKeyDown((int)KeyboardKey.KEY_E) == true)
+            //{
+            //    Game.SetCurrentScene(1);
+            //}
 
             base.Update(deltaTime);
         }

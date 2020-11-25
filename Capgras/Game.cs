@@ -205,17 +205,24 @@ namespace Capgras
             leftLeg.SetScale(.40f, 0.95f);
 
             //Objects
+            Menu menu = new Menu(20, 20, Color.GREEN, player, ' ', ConsoleColor.Green);
+            menu.SetTranslate(new Vector2(30, 17));
+            menu.SetScale(60, 30);
 
-            Door door = new Door(20, 20, Color.GREEN, player, ' ', ConsoleColor.Green);
-            door.SetTranslate(new Vector2(50, 22f)); // Y should always be at 22f!
-            door.SetScale(8, 15);
+            Door door1 = new Door(20, 20, Color.GREEN, player, ' ', ConsoleColor.Green);
+            door1.SetTranslate(new Vector2(50, 22f)); // Y should always be at 22f!
+            door1.SetScale(8, 15);
+
+            Door door2 = new Door(20, 20, Color.GREEN, player, ' ', ConsoleColor.Green);
+            door2.SetTranslate(new Vector2(10, 22f)); // Y should always be at 22f!
+            door2.SetScale(8, 15);
 
             Wardrobe wardrobe = new Wardrobe(20, 20, Color.GREEN, player, ' ', ConsoleColor.Green);
             wardrobe.SetTranslate(new Vector2(30, 19f));
             wardrobe.SetScale(12, 22);
 
             Paintings painting1 = new Paintings(50, 50, Color.YELLOW, ' ', ConsoleColor.Red);
-            painting1.SetTranslate(new Vector2(25, 17));
+            painting1.SetTranslate(new Vector2(60, 17));
             painting1.SetScale(55, 25);
 
             NextSide side = new NextSide(20, 20, Color.GREEN, player, ' ', ConsoleColor.Green);
@@ -225,7 +232,7 @@ namespace Capgras
             // SCENE 1
             //Setting adding
             scene1.AddActor(bedroom);
-            scene1.AddActor(door); //must be where its at
+            scene1.AddActor(door1); //must be where its at
 
             //player adding
             scene1.AddActor(leftLeg);
@@ -236,11 +243,14 @@ namespace Capgras
             scene1.AddActor(fog);
             scene1.AddActor(wasd);
 
+            //MENU
+            scene1.AddActor(menu);
+
             //SCENE 2
             //Setting adding
             scene2.AddActor(hallway);
             scene2.AddActor(painting1);
-            scene2.AddActor(door);
+            scene2.AddActor(door2);
             scene2.AddActor(wardrobe);
             scene2.AddActor(SPACE);
 

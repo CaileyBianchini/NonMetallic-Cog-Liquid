@@ -71,6 +71,9 @@
     <None Update="GAme\jump D.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="GAme\Menu.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="GAme\paintings 1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
