@@ -214,6 +214,10 @@ namespace Capgras
             wardrobe.SetTranslate(new Vector2(30, 19f));
             wardrobe.SetScale(12, 22);
 
+            Paintings painting1 = new Paintings(50, 50, Color.YELLOW, ' ', ConsoleColor.Red);
+            painting1.SetTranslate(new Vector2(30, 17));
+            painting1.SetScale(60, 30);
+
             // SCENE 1
             //Setting adding
             scene1.AddActor(bedroom);
@@ -231,6 +235,7 @@ namespace Capgras
             //SCENE 2
             //Setting adding
             scene2.AddActor(hallway);
+            scene2.AddActor(painting1);
             scene2.AddActor(door);
             scene2.AddActor(wardrobe);
             scene2.AddActor(SPACE);
