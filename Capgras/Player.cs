@@ -67,19 +67,19 @@ namespace Capgras
             }
             else if(Game.GetKeyDown((int)KeyboardKey.KEY_SPACE) == true) // jumping while facing player
             {
-                _sprite = new Sprite("");
+                _sprite = new Sprite("GAme/jump D.png"); //temperarily D facing
             }
             else if (Game.GetKeyDown((int)KeyboardKey.KEY_SPACE) == true && Game.GetKeyDown((int)KeyboardKey.KEY_D) == true) // juming right
             {
-                _sprite = new Sprite("");
+                _sprite = new Sprite("GAme/jump D.png");
             }
             else if (Game.GetKeyDown((int)KeyboardKey.KEY_SPACE) == true && Game.GetKeyDown((int)KeyboardKey.KEY_A) == true) // jumping left
             {
-                _sprite = new Sprite("");
+                _sprite = new Sprite("GAme/jump A.png");
             }
             else //will make this facing player
             {
-                _sprite = new Sprite("GAme/D.png");
+                _sprite = new Sprite("GAme/facing.png");
             }
 
             //Set the actors current velocity to be the a vector with the direction found scaled by the speed
