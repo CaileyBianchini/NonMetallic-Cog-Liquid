@@ -52,30 +52,39 @@ namespace Capgras
             //Gets the player's input to determine which direction the actor will move in on each axis 
             int xDirection = -Convert.ToInt32(Game.GetKeyDown((int)KeyboardKey.KEY_A))
                 + Convert.ToInt32(Game.GetKeyDown((int)KeyboardKey.KEY_D));
+            int yDirection = 0;
 
-            //JUMPING
-            int yDirection = -Convert.ToInt32(Game.GetKeyDown((int)KeyboardKey.KEY_SPACE));
+            //JUMPING (temperarily disabling it but keeping the visuals)
+            //yDirection = -Convert.ToInt32(Game.GetKeyDown((int)KeyboardKey.KEY_SPACE));
 
-            if (Game.GetKeyDown((int)KeyboardKey.KEY_A) == true)
+            if (Game.GetKeyDown((int)KeyboardKey.KEY_A) == true) //facing left
             {
                 _sprite = new Sprite("GAme/A.png");
             }
-            else if (Game.GetKeyDown((int)KeyboardKey.KEY_E) == true)
+            else if (Game.GetKeyDown((int)KeyboardKey.KEY_D) == true) //facing right
+            {
+                _sprite = new Sprite("GAme/D.png");
+            }
+            else if(Game.GetKeyDown((int)KeyboardKey.KEY_SPACE) == true) // jumping while facing player
             {
                 _sprite = new Sprite("");
             }
-            else if(Game.GetKeyDown((int)KeyboardKey.KEY_SPACE) == true)
+            else if (Game.GetKeyDown((int)KeyboardKey.KEY_SPACE) == true && Game.GetKeyDown((int)KeyboardKey.KEY_D) == true) // juming right
             {
                 _sprite = new Sprite("");
             }
-            else
+            else if (Game.GetKeyDown((int)KeyboardKey.KEY_SPACE) == true && Game.GetKeyDown((int)KeyboardKey.KEY_A) == true) // jumping left
+            {
+                _sprite = new Sprite("");
+            }
+            else //will make this facing player
             {
                 _sprite = new Sprite("GAme/D.png");
             }
 
             //Set the actors current velocity to be the a vector with the direction found scaled by the speed
-            Acceleration = new Vector2(xDirection, yDirection); //doesn't have real meaning yet
-            //Velocity = new Vector2(xDirection, yDirection);
+            //Acceleration = new Vector2(xDirection, yDirection); //NOT BEING USED!!!
+            Velocity = new Vector2(xDirection, yDirection);
             Velocity = Velocity.Normalized * Speed;
 
             base.Update(deltaTime);

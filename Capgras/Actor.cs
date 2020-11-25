@@ -266,10 +266,10 @@ namespace Capgras
 
             UpdateTransform();
 
-            //When its uncommented out, it doesn't allow the person to move
-            Velocity += Acceleration;
-            if (Velocity.Magnitude > MaxSpeed)
-                Velocity = Velocity.Normalized * MaxSpeed;
+            //When its uncommented out, it doesn't allow the person to move NOT BEING IMPLEMENTED!!
+            //Velocity += Acceleration;
+            //if (Velocity.Magnitude > MaxSpeed)
+            //    Velocity = Velocity.Normalized * MaxSpeed;
 
 
             //Increase position by the current velocity

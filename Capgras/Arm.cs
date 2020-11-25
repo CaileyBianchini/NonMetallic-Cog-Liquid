@@ -68,21 +68,29 @@ namespace Capgras
             }
 
             //!this will change what the icon looks like!
-            if (Game.GetKeyDown((int)KeyboardKey.KEY_A) == true)
+            if (Game.GetKeyDown((int)KeyboardKey.KEY_A) == true) // left arm
             {
                 _sprite = new Sprite("GAme/body hand A.png");
             }
-            else if (Game.GetKeyDown((int)KeyboardKey.KEY_E) == true)
-            {
-                _sprite = new Sprite("");
-            }
-            else if (Game.GetKeyDown((int)KeyboardKey.KEY_SPACE) == true)
-            {
-                _sprite = new Sprite("");
-            }
-            else
+            else if (Game.GetKeyDown((int)KeyboardKey.KEY_D) == true) // right arm
             {
                 _sprite = new Sprite("GAme/body hand.png");
+            }
+            else if (Game.GetKeyDown((int)KeyboardKey.KEY_SPACE) == true) //erases arm
+            {
+                _sprite = new Sprite("");
+            }
+            else if (Game.GetKeyDown((int)KeyboardKey.KEY_SPACE) == true && Game.GetKeyDown((int)KeyboardKey.KEY_D) == true) // juming right and erasing arm
+            {
+                _sprite = new Sprite("");
+            }
+            else if (Game.GetKeyDown((int)KeyboardKey.KEY_SPACE) == true && Game.GetKeyDown((int)KeyboardKey.KEY_A) == true) // jumping left and erasing arm
+            {
+                _sprite = new Sprite("");
+            }
+            else //erases arm
+            {
+                _sprite = new Sprite("");
             }
 
             base.Update(deltaTime);

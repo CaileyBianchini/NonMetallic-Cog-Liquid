@@ -63,17 +63,25 @@ namespace Capgras
             {
                 _sprite = new Sprite("GAme/body foot A.png");
             }
-            else if (Game.GetKeyDown((int)KeyboardKey.KEY_E) == true)
+            else if (Game.GetKeyDown((int)KeyboardKey.KEY_D) == true)
+            {
+                _sprite = new Sprite("GAme/body foot.png");
+            }
+            else if (Game.GetKeyDown((int)KeyboardKey.KEY_SPACE) == true) //jumping while facing
             {
                 _sprite = new Sprite("");
             }
-            else if (Game.GetKeyDown((int)KeyboardKey.KEY_SPACE) == true)
+            else if (Game.GetKeyDown((int)KeyboardKey.KEY_SPACE) == true && Game.GetKeyDown((int)KeyboardKey.KEY_D) == true) // juming right
+            {
+                _sprite = new Sprite("");
+            }
+            else if (Game.GetKeyDown((int)KeyboardKey.KEY_SPACE) == true && Game.GetKeyDown((int)KeyboardKey.KEY_A) == true) // jumping left
             {
                 _sprite = new Sprite("");
             }
             else
             {
-                _sprite = new Sprite("GAme/body foot.png");
+                _sprite = new Sprite("");
             }
 
             base.Update(deltaTime);
