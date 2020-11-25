@@ -46,7 +46,8 @@ namespace Capgras
             _sprite.Draw(_globalTransform);
             base.Draw();
         }
-
+        
+        
         public override void Update(float deltaTime)
         {
             //Gets the player's input to determine which direction the actor will move in on each axis 

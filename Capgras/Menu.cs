@@ -47,7 +47,6 @@ namespace Capgras
             {
                 _sprite = new Sprite("");
             }
-            
 
             base.Update(deltaTime);
         }
