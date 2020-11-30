@@ -43,6 +43,21 @@
              Description: This will start the program in what ever is in Game()
              Type: static void
 
+COPY AND PASTE
+
+         Name: 
+             Description:  
+             Type: 
+
+
+**File**: Game.cs
+
+**Attributes**
+
+         Name: Main(string[] args)
+             Description: This creates a new Game() and runs Game's Run()
+             Type: static void
+
 
 **File**: Game.cs
 
@@ -53,15 +68,185 @@ This is one of the tutorial images that teaches player the buttons
 
 **Attributes**
 
-         Name: Run()
-             Description: This will allow the program to runwhat is inside of it, and only that
-             Type: public void
+         Name: CurrentSceneIndex
+             Description: A property that gets and returns _crrentSceneIndex
+             Type: public static
+         Name: DefaultColor
+             Description: A property that gets and sets ConsoleColor to White
+             Type:  public static ConsoleColor
+         Name: SetGameOver(int index)
+             Description: this sets a "value" to _gameOver and allows it to beused everywhere in the program
+             Type: public static void
+         Name: GetScene(int index)
+             Description: makes index a new index if its less then 0 and if its greater than zero then it returns the value of _scenes[index]
+             Type: public static Scene
+         Name: GetCurrentScene
+             Description: returns the value of _currentSceneIndes for _scenes
+             Type: public static Scene
+         Name: CurremtScene
+             Description:  returns the value of _currentSceneIndes for _scenes
+             Type: public static Scene
+         Name: AddScene(Scene scene)
+             Description:  Adds an item to the scenes array
+             Type: public static int
+         Name: RemoveScene(Scene scene)
+             Description:  this takes out an item from scenes array
+             Type: public static bool
+         Name: SetCurrentScene(int index)
+             Description:  this makes sure there is a scene, starts it and sets the index for current scene
+             Type: public static void
+         Name: GetKeyDown(int key)
+             Description:  returns the raylib keynoard key that was pressed
+             Type: public static bool
+         Name: GetKeyPressed
+             Description:  similar to GetKeyDown() but this helps prevent lag
+             Type: public static bool
+         Name: Game()
+             Description:  this creates the first scene
+             Type: public
          Name: Start()
-             Description: This will happen at the "Start" of Run. everything that is inside of this will run first
+             Description:  this creates and imports everthing for the game to have images and such
              Type: public void
-         Name: Update()
-             Description: Information inside of update will update the information needed for the game to run.
+         Name: Update(float deltaTime)
+             Description:  this checks to see if the scenes have started and if not then it must start
+             Type: public void
+         Name:  Draw()
+             Description:  this will allow the program to begin drawing and everything that needs to be draw will be drawn. It will also clears the screen just in case if theres anything else
              Type: public void
          Name: End()
-             Description: Anything that is put in this will always be played towards the end of the program before closing. This time around it will have story ends.
+             Description:  this will take the started index and ends it
              Type: public void
+         Name: Run()
+             Description:  this will keep the program running until gameOver is true
+             Type: public void
+
+**File**: Actor.cs
+
+**Attributes**
+
+         Name: Started
+             Description:  property that makes start have a privated value
+             Type: public bool
+         Name: SetTranslate(Vector2 position)
+             Description:  this allows translation to have a value using the position and the math libraries Matrix
+             Type: public void
+         Name: SetRotation(float radians)
+             Description:  this allows rotation to have a value using the radians and the math libraries Matrix
+             Type: public void
+         Name: Rotate(float radians)
+             Description:  this multiplies the rotation with math library Matrix with radians
+             Type: public void
+         Name: localRotate(float angle)
+             Description:  this creates a rotation that will only apply to location depending on actors parent location
+             Type: public void
+         Name: LookAt(Vector2 position)
+             Description:  this will take the players position and make the player face a . . . direction using dotproduct 
+             Type: public void
+         Name: SetScale(float x, float y)
+             Description:  with the use of x and y it allows the value of scale to depend on that while using Math Library Vector2
+             Type: public void
+         Name: UpdateTransform()
+             Description:  makes the local transformation be the value of * translation, rotation and scale. It will also check to see wether or not actor has a parent, is so it grabs the parents transforms, if not it makes its own global transform.
+             Type: private void
+         Name: Forward
+             Description:  grabs local position and gives a normalized value and returns it as a global 
+             Type: public Vector2
+         Name: WorldPosition
+             Description:  
+             Type: 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
