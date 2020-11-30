@@ -152,19 +152,41 @@ This is one of the tutorial images that teaches player the buttons
              Description:  grabs local position and gives a normalized value and returns it as a global 
              Type: public Vector2
          Name: WorldPosition
-             Description:  
-             Type: 
-
-
-
-
-
-
-
-
-
-
-
+             Description:  a property that gets global transform
+             Type: public Vector2
+         Name: LocalPosition
+             Description:  a property that gets the local transform then returns to where its wanted
+             Type: public Vector2
+         Name: Velocity
+             Description:  makes velocity have a value and returns that value
+             Type: public Vector2
+         Name: Acceleration
+             Description:  makes acceleration have a value and returns that value
+             Type: public Vector2
+         Name: MaxSpeed
+             Description:  makes maxSpeed have a value and returns that value
+             Type: public float
+         Name: AddChild(Actor child)
+             Description:   this adds a named actor to an array and makes it depend on named parent
+             Type: public void 
+         Name: RemoveChild(Actor child)
+             Description:  this will remove the named actor from the array 
+             Type: public bool
+         Name: UpdateFacing()
+             Description:  this will update the forward function if velocity.magnigtude is equal to or less than 0
+             Type: private void
+         Name: Start()
+             Description:  this makes sure Started is true
+             Type: public virtual void
+         Name: Update(float deltaTime)
+             Description:  This will apply all Update functions and apply math for local position
+             Type: public virtual void
+         Name: Draw()
+             Description:  this applies position to Window and makes sure the icon is staying in border
+             Type: public virtual void
+         Name: End()
+             Description:  this makes Started = false
+             Type: public virtual void
 
 
 
