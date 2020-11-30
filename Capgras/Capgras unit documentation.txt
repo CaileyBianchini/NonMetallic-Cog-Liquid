@@ -188,17 +188,67 @@ This is one of the tutorial images that teaches player the buttons
              Description:  this makes Started = false
              Type: public virtual void
 
+**File**: Scene.cs 
+**Attributes**
+
+         Name: Started
+             Description:  gives privated value to started and returns it
+             Type: public bool
+         Name: Scene()
+             Description:  creates a new actor array
+             Type: public
+         Name: World
+             Description:  grabs the value of transform
+             Type: public Matrix3
+         Name: AddActor(Actor actor)
+             Description:  This adds a named actory to an array
+             Type: public void
+         Name: RemoveActor(int index)
+             Description:  return wether true or not if named actor has been removed from array
+             Type: public bool
+         Name: RemoveActor(Actor actor)
+             Description:  return wether true or not if named actor has been removed from array
+             Type: public bool
+         Name: CheckCollision(Actor actor)
+             Description:  returns false
+             Type: public bool
+         Name: Update(float deltaTime)
+             Description:  it checks collision and the goes through actors entire array and starts all of them
+             Type: public virtual void
+         Name: Draw()
+             Description:  this will go through the entire array of actors and draw them
+             Type: public virtual void
+         Name: End()
+             Description:  this will go through entire list of actors and end it
+             Type: public virtual void
 
 
+**File**: Player.cs : Actor.cs
+**Attributes**
+
+         Name: Speed
+             Description:  this gives value to speed and returns it
+             Type: public float
+         Name: Draw()
+             Description:  this applies the asigned icon and uses actors base Draw for the rest
+             Type: public override void
+         Name: Update(float deltaTime)
+             Description:  this makes the player able to input keys and move where they want, this will also change the images depending how they move.
+             Type: public override void
 
 
+**File**: Door.cs : Actor.cs
+**Attributes**
 
-
-
-
-
-
-
+         Name: CheckPlayerDistance()
+             Description:  checks to see if players distance is within 8 and if its > its false, <= 8 then its true
+             Type: private bool
+         Name: Draw()
+             Description:  uses the Actors Update while applying Doors specific icon
+             Type: public override void
+         Name: Update(float deltaTime)
+             Description:  this checks to see if CheckPlayerDistance is true or not and if player chose E, if both true then it goes to next scene.
+             Type: public override void
 
 
 
