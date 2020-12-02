@@ -5,7 +5,7 @@
 | Programming class 2022 |
 |December 4, 2020|
 # Capgras
-
+![image](pictures/Menu.PNG)
 
 
 ## Getting Started
