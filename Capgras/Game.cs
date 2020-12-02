@@ -225,10 +225,6 @@ namespace Capgras
             painting1.SetTranslate(new Vector2(60, 17));
             painting1.SetScale(55, 25);
 
-            NextSide side = new NextSide(20, 20, Color.GREEN, player, ' ', ConsoleColor.Green);
-            side.SetTranslate(new Vector2(50, 22f)); // Y should always be at 22f!
-            side.SetScale(8, 15);
-
             // SCENE 1
             //Setting adding
             scene1.AddActor(bedroom);
