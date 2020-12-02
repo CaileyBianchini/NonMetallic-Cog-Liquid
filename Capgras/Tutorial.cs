@@ -8,14 +8,8 @@ namespace Capgras
 {
     class Tutorial : Actor
     {
-        private float _speed = 1;
         private Sprite _sprite;
 
-        public float Speed
-        {
-            get { return _speed; }
-            set { _speed = value; }
-        }
 
         public Tutorial(float x, float y, char icon = ' ', ConsoleColor color = ConsoleColor.White)
             : base(x, y, icon, color)

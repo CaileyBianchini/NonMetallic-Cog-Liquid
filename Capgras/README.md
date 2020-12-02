@@ -18,14 +18,27 @@
 	- **Gameplay**: You will be navigating the house, advoiding the monstrous parents and other things lurking about. 
 					The further you go, the more peices of the puzzle you will find. 
 					Lets hope you do not find the same fate as the parents.
-2. ****Designs****
-	- **Characters** 
+2. ****Characters****
 	- Joseph Stuss - 9 yrs old - 4'5" - Youngest child - Born August 23
     - Qlhu Zabzz - 14 fyz vsk - 5'6" - Vsklza jopsk - Ivyu Hbnbza 23 - Kplk Qhubhyf 27
     - Marie Stuss - 32 yrs old - 5'5" - Mother - September 26
     - Paul Stuss - 38 yrs old - 5'11" - Father - July 2
 
-## Instructions
+## Extras
+
+1. **Bugs & Need Fixes**
+   - Will not allow to do multiple scenes, only works once
+   - Fix how legs move
+   - make it where Setting() switches image depending on scene
+2. **Adding**
+   - Will be adding more scenes
+   - enemies
+   - able to pick up some items
+   - inspect option
+   - reading portions
+   - save and load
+
+### Instructions
 | ****Buttons**** |
 | :---          	|
 |**E** - To use doors |

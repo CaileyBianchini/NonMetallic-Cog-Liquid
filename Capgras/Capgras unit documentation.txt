@@ -27,11 +27,17 @@
  
 ## II. Errors
 
-    1. 
+    1. will not allow to go to next scene after the second scene
 
 ### III. Graphics
+This is the menu
+![image](GAme/Menu.PNG)
 
+Wardrobe that the player hides in
+![image](GAme/coset.PNG)
 
+This is the player 
+![image](GAme/facing.PNG)
 
 #### Object Information
 
@@ -43,13 +49,6 @@
              Description: This will start the program in what ever is in Game()
              Type: static void
 
-COPY AND PASTE
-
-         Name: 
-             Description:  
-             Type: 
-
-
 **File**: Game.cs
 
 **Attributes**
@@ -60,11 +59,14 @@ COPY AND PASTE
 
 
 **File**: Game.cs
+Menu
+![image](GAme/Menu.PNG)
 
-This is one of the tutorial images that teaches player the buttons
+The first tutorial that teaches movement
 ![Capgras](GAme/tutorial 1.png)
 
-![image](GAme/menu.PNG)
+the second that teaches player to ju,p
+![Capgras](GAme/tutorial 2.PNG)
 
 **Attributes**
 
@@ -250,31 +252,112 @@ This is one of the tutorial images that teaches player the buttons
              Description:  this checks to see if CheckPlayerDistance is true or not and if player chose E, if both true then it goes to next scene.
              Type: public override void
 
+**File**: Sprite.cs
+**Attributes**
 
+         Name: Width
+             Description:  property that calls for the value of textures width
+             Type: public int
+         Name: Height
+             Description:  property that calls for the value of textures height
+             Type: public int
+         Name: Draw(Matrix3 transform)
+             Description:  this will draw the sprite (image) using x and y data and applying transforms to it
+             Type: 
 
+**File**: Setting.cs
+**Attributes**
 
+         Name: Draw()
+             Description:  this will draw bedroom image
+             Type: public override void
+**File**: Arm.cs : Actor.cs
+**Attributes**
 
+         Name: Draw()
+             Description:  this will draw the arm image
+             Type: public override void
+         Name: Update(float deltaTime)
+             Description:  this will check to see what buttons are pushed and update the image while also making the image seems like its moving while player is walking
+             Type: public override void
 
+**File**: Leg.cs : Actor.cs
+**Attributes**
 
+         Name: Draw()
+             Description:  this wil draw the legs image
+             Type: public override void
+         Name: Update(float deltaTime)
+             Description:  this will check to see what buttons are pushed and update the image while also making the image seem like it moving while player is walking.
+             Type: public override void
 
+**File**: Wardrobe.csu : Actor.cs
+**Attributes**
 
+         Name: CheckPlayerDistance()
+             Description:  this will check to see if player is within range of enemies specific vision
+             Type: private bool
+         Name: Draw()
+             Description:  this will draw the updated image of the wardrobe
+             Type: public override void
+         Name: Update(float deltaTime)
+             Description:  this will check if player is within distance and if player chose e, if true player hides in closet
+             Type: public override void
 
+**File**: Menu.cs : Actor.cs
+**Attributes**
 
+         Name: CheckPlayerDistance()
+             Description:  this will check if player is in distance of this actor
+             Type: private bool
+         Name: Draw()
+             Description:  It will draw the menu image
+             Type: public override void
+         Name: Update(float deltaTime)
+             Description:  if player is within distance and presses E, it will move onto next scene
+             Type: public override void
 
+**File**: Paintings.cs
+**Attributes**
 
+         Name: Draw()
+             Description:  It will draw the painting image
+             Type: public override void
 
+**File**: Paintings.cs : Actor.cs
+**Attributes**
 
+         Name: Draw()
+             Description:  It will draw the menu image
+             Type: public override void
 
+**File**: Fog.cs : Actor.cs
+**Attributes**
+This will be updated to change image depending on character's mental state
+         Name: Draw()
+             Description:  It will draw the menu image
+             Type: public override void
 
+**File**: Tutorial.cs : Actor.cs
+**Attributes**
 
+         Name: Draw()
+             Description:  It will draw the tutorial image 1
+             Type: public override void
 
+**File**: Tutorial2.cs : Actor.cs
+**Attributes**
 
+         Name: Draw()
+             Description:  It will draw the tutorial image 2
+             Type: public override void
 
-
-
-
-
-
+**File**: Hallway.cs : Actor.cs
+**Attributes**
+this will soon be conbined with other setting scenes
+         Name: Draw()
+             Description:  It will draw the Hallway image
+             Type: public override void
 
 
 
