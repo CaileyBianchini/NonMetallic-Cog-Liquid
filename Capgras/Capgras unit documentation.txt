@@ -53,23 +53,6 @@ This is the player
 
 **Attributes**
 
-         Name: Main(string[] args)
-             Description: This creates a new Game() and runs Game's Run()
-             Type: static void
-
-
-**File**: Game.cs
-Menu
-![image](GAme/Menu.PNG)
-
-The first tutorial that teaches movement
-![Capgras](GAme/tutorial 1.png)
-
-the second that teaches player to ju,p
-![Capgras](GAme/tutorial 2.PNG)
-
-**Attributes**
-
          Name: CurrentSceneIndex
              Description: A property that gets and returns _crrentSceneIndex
              Type: public static
