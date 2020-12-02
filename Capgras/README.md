@@ -5,16 +5,19 @@
 | Programming class 2022 |
 |December 4, 2020|
 # Capgras
-![image](pictures/Menu.PNG)
+![image](GAme/Menu.PNG)
+
+**How To Download***
 
 
 ## Getting Started
 | Buttons |
 | :---          	|
-|**E** - To use doors and wardrobes |
+|**E** - To use doors |
+|**Hold E** - To hide in wardrobes	|
 |**A** - To go left |
 |**D** - To go right |
-|**W** - to jump - ***will be added***
+|**W** - to jump - ***will be added*** |
 
 
 
